@@ -3,173 +3,230 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Contacto · Odontología</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Crazy Kids · Eventos Infantiles</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#fff0f6;             
-  --accent:#ff4d6d;         
-  --accent-light:#ffa3b1;   
-  --deep:#880e4f;           
-  --muted:#ad1457;          
-  --card:#ffffff; 
-  --radius:20px;
-  --shadow:0 14px 36px rgba(136,14,79,0.12);
+  --blue:#2563eb;
+  --pink:#ff3d81;
+  --yellow:#ffd166;
+  --green:#22c55e;
+  --card:#ffffff;
+  --radius:26px;
+  --shadow:0 18px 44px rgba(37,99,235,.25);
 }
+
 *{box-sizing:border-box;}
-html, body {
-  height:100%; margin:0;
+
+html,body{
+  height:100%;
+  margin:0;
   font-family:'Montserrat',sans-serif;
-  background: linear-gradient(180deg, #ffe6eb 0%, #fff0f6 100%);
+  background:
+    radial-gradient(circle at top left,#fde68a 0%,transparent 40%),
+    radial-gradient(circle at bottom right,#fbcfe8 0%,transparent 40%),
+    linear-gradient(180deg,#e0f2fe 0%,#fff7ed 50%,#fce7f3 100%);
 }
-body {
+
+body{
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:0;
+  padding:12px;
 }
-.container {
+
+/* Contenedor */
+.container{
   width:100%;
-  max-width:500px;
+  max-width:520px;
   min-height:100vh;
   display:flex;
-  justify-content:center;
   align-items:center;
-  padding:16px;
+  justify-content:center;
 }
-.card {
-  background: linear-gradient(145deg, #ffffff, #ffe6eb);
+
+/* Tarjeta */
+.card{
+  width:100%;
+  background:var(--card);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
-  padding:30px 22px;
+  padding:30px 22px 26px;
   text-align:center;
-  max-height:95vh;
-  overflow:auto;
-}
-/* Foto circular */
-.photo-circle {
-  width:160px;
-  height:160px;
-  border-radius:50%;
+  position:relative;
   overflow:hidden;
-  margin:0 auto 20px;
-  border:4px solid var(--accent);
-  background:linear-gradient(180deg,#ffdce3,#ffa3b1);
-  box-shadow:0 8px 20px rgba(255,77,109,0.2);
 }
-.photo-circle img { width:100%; height:100%; object-fit:cover; }
-/* Titulos y rol */
-h1 { font-size:1.45rem; margin:10px 0 4px; color:var(--deep); font-weight:700; }
-.role { font-size:1rem; color:var(--muted); margin:0 0 12px; font-weight:600; }
-/* Redes sociales en columna con iconos */
-.socials {
+
+/* Confeti decorativo */
+.card::before,
+.card::after{
+  content:"🎉 🎈 ⭐ 🧸 🍭";
+  position:absolute;
+  font-size:1.4rem;
+  opacity:.15;
+}
+.card::before{top:10px;left:10px;}
+.card::after{bottom:10px;right:10px;}
+
+/* Foto */
+.photo-circle{
+  width:165px;
+  height:165px;
+  border-radius:50%;
+  margin:0 auto 18px;
+  overflow:hidden;
+  border:6px solid transparent;
+  background:
+    linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(135deg,var(--blue),var(--pink),var(--yellow),var(--green)) border-box;
+  box-shadow:0 10px 26px rgba(0,0,0,.2);
+}
+.photo-circle img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* Títulos */
+h1{
+  margin:8px 0 6px;
+  font-size:1.7rem;
+  font-weight:800;
+  color:var(--blue);
+}
+.role{
+  font-size:1.05rem;
+  font-weight:700;
+  color:var(--pink);
+}
+
+/* Redes */
+.socials{
   display:flex;
   flex-direction:column;
   gap:14px;
-  justify-content:center;
-  margin-top:22px;
+  margin-top:26px;
   align-items:center;
 }
-.social-btn {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  padding:12px 14px;
-  border-radius:16px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  border:none;
-  box-shadow:0 10px 22px rgba(255,77,109,0.2);
-  cursor:pointer; text-decoration:none;
-  color:white; font-weight:700;
-  font-size:1rem;
-  width:65%;
-  text-align:center;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-.social-btn:hover {
-  transform:translateY(-4px);
-  box-shadow:0 18px 38px rgba(255,77,109,0.35);
-  background: linear-gradient(135deg, #ff6680, #ff99aa);
-}
-/* Botón guardar contacto */
-.cta-row { display:flex; justify-content:center; margin-top:22px; align-items:center; }
-.save-btn {
-  background: linear-gradient(135deg,#ff4d6d,#ff99aa);
-  color:white; padding:12px 20px;
-  border-radius:16px; border:none;
-  font-weight:800; font-size:1.05rem;
-  box-shadow:0 12px 28px rgba(255,77,109,0.25);
-  cursor:pointer;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-.save-btn:hover {
-  transform:translateY(-4px);
-  box-shadow:0 20px 44px rgba(255,77,109,0.35);
-}
-.footer-note { font-size:.84rem; color:#ad1457; text-align:center; margin-top:18px; padding-bottom:6px; }
 
+.social-btn{
+  width:78%;
+  padding:14px 16px;
+  border-radius:20px;
+  text-decoration:none;
+  color:white;
+  font-size:1.05rem;
+  font-weight:800;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  background:linear-gradient(135deg,var(--blue),var(--pink),var(--yellow));
+  box-shadow:0 12px 28px rgba(0,0,0,.25);
+  transition:.25s;
+}
+.social-btn:hover{
+  transform:translateY(-4px) scale(1.02);
+  box-shadow:0 18px 40px rgba(0,0,0,.35);
+}
+
+/* Botón guardar */
+.cta-row{
+  margin-top:26px;
+}
+.save-btn{
+  padding:14px 26px;
+  border:none;
+  border-radius:22px;
+  font-size:1.1rem;
+  font-weight:900;
+  color:white;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--green),var(--yellow));
+  box-shadow:0 14px 32px rgba(34,197,94,.35);
+  transition:.25s;
+}
+.save-btn:hover{
+  transform:translateY(-4px) scale(1.05);
+}
+
+/* Footer */
+.footer-note{
+  margin-top:20px;
+  font-size:.85rem;
+  color:#555;
+  font-weight:600;
+}
+
+/* Responsive */
 @media(max-width:420px){
-  .photo-circle{width:140px;height:140px;}
-  .social-btn{width:80%;font-size:.95rem;padding:10px 12px;}
+  .photo-circle{width:145px;height:145px;}
+  h1{font-size:1.55rem;}
+  .social-btn{width:90%;}
 }
 </style>
 </head>
+
 <body>
 <div class="container">
-  <div class="card" id="profileCard">
+  <div class="card">
+
     <div class="photo-circle">
-      <img src="https://i.postimg.cc/gcKc2wNs/Whats-App-Image-2026-02-07-at-11-46-49-AM.jpg" alt="crazykids">
+      <img src="https://i.postimg.cc/gcKc2wNs/Whats-App-Image-2026-02-07-at-11-46-49-AM.jpg" alt="Crazy Kids">
     </div>
+
     <h1>Crazy Kids</h1>
-    <div class="role">Crazy Kids</div>
+    <div class="role">🎉 Salón de eventos infantiles</div>
 
     <div class="socials">
-      <a class="social-btn" href="tel:+528332318763">📱 Llamar</a>
-      <a class="social-btn" href="https://wa.me/528332318763" target="_blank">💬 WhatsApp</a>
-      <a class="social-btn" href="https://www.instagram.com/tuusuario" target="_blank">📸 Instagram</a>
-      <a class="social-btn" href="https://www.facebook.com/luisarteaga" target="_blank">📘 Facebook</a>
+      <a class="social-btn" href="tel:+528332318763">📞 Llamar</a>
+      <a class="social-btn" href="https://wa.me/528332318763" target="_blank">🎈 WhatsApp</a>
+      <a class="social-btn" href="https://www.instagram.com/tuusuario" target="_blank">🎂 Instagram</a>
+      <a class="social-btn" href="https://www.facebook.com/luisarteaga" target="_blank">🎉 Facebook</a>
     </div>
 
     <div class="cta-row">
-      <button class="save-btn" id="saveContact">Guardar contacto</button>
+      <button class="save-btn" id="saveContact">📇 Guardar contacto</button>
     </div>
-    <div class="footer-note">Elaborado y diseñado por FORMSTAM</div>
+
+    <div class="footer-note">
+      Diseñado por FORMSTAM
+    </div>
+
   </div>
 </div>
 
 <script>
-document.getElementById('saveContact').addEventListener('click', function(){
-  const fn = "Dra. Teresa Guzman Gonzalez";
-  const tel = "+528332318763";
-  const email = "a.danielaguzman@hotmail.com";
-  const org = "Clínica Dental";
-  const title = "Odontóloga";
+document.getElementById('saveContact').addEventListener('click',function(){
+  const fn="Crazy Kids";
+  const tel="+528332318763";
+  const email="contacto@crazykids.com";
+  const org="Crazy Kids";
+  const title="Salón de eventos infantiles";
 
-  const vcard = `BEGIN:VCARD
+  const vcard=`BEGIN:VCARD
 VERSION:3.0
 FN:${fn}
-N:Guzman Gonzalez;Teresa;;;
-TITLE:${title}
+N:Crazy Kids;;;;
 ORG:${org}
+TITLE:${title}
 TEL;TYPE=CELL:${tel}
 EMAIL;TYPE=INTERNET:${email}
 END:VCARD`;
 
-  const blob = new Blob([vcard], {type:'text/vcard'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = fn.replace(/\s+/g,'_')+'.vcf';
+  const blob=new Blob([vcard],{type:'text/vcard'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='Crazy_Kids.vcf';
   document.body.appendChild(a);
   a.click();
   a.remove();
   URL.revokeObjectURL(url);
 });
 </script>
+
 </body>
 </html>
-
-
