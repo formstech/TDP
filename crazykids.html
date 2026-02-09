@@ -71,6 +71,7 @@ body{
 .card::before{top:10px;left:12px;}
 .card::after{bottom:10px;right:12px;}
 
+/* Imagen */
 .photo-circle{
   width:100%;
   max-width:320px;
@@ -91,8 +92,6 @@ body{
   object-position:center;
   transform:scale(0.88);
 }
-
-
 
 h1{
   margin:8px 0 6px;
@@ -142,13 +141,16 @@ h1{
 
 /* Colores por red */
 .call{
-  background:linear-gradient(135deg,var(--green,#22c55e),var(--cyan));
+  background:linear-gradient(135deg,#22c55e,var(--cyan));
 }
 .whatsapp{
   background:linear-gradient(135deg,#25d366,#128c7e);
 }
 .instagram{
   background:linear-gradient(135deg,var(--orange),var(--pink),var(--purple));
+}
+.tiktok{
+  background:linear-gradient(135deg,#000000,#FE2C55,#25F4EE);
 }
 .facebook{
   background:linear-gradient(135deg,#1877f2,var(--blue));
@@ -188,7 +190,10 @@ h1{
 }
 
 @media(max-width:420px){
-  .photo-circle{width:145px;height:145px;}
+  .photo-circle{
+    max-width:280px;
+    height:170px;
+  }
   h1{font-size:1.55rem;}
   .social-btn{width:92%;}
 }
@@ -204,10 +209,10 @@ h1{
     </div>
 
     <h1>Crazy Kids</h1>
-    <div class="role"></div>
+    <div class="role">🎉 Eventos Infantiles</div>
 
     <div class="socials">
-      <a class="social-btn call" href="tel:+52528335342836">
+      <a class="social-btn call" href="tel:+528335342836">
         <i class="fa-solid fa-phone"></i> Llamar
       </a>
 
@@ -217,6 +222,10 @@ h1{
 
       <a class="social-btn instagram" href="https://www.instagram.com/crazykidstam?igsh=MXdqbXdvcG00dXBmMw==" target="_blank">
         <i class="fa-brands fa-instagram"></i> Instagram
+      </a>
+
+      <a class="social-btn tiktok" href="https://www.tiktok.com/@TUUSUARIO" target="_blank">
+        <i class="fa-brands fa-tiktok"></i> TikTok
       </a>
 
       <a class="social-btn facebook" href="https://www.facebook.com/share/1E5xLzNd8G/?mibextid=wwXIfr" target="_blank">
@@ -244,7 +253,7 @@ VERSION:3.0
 FN:Crazy Kids
 ORG:Crazy Kids
 TITLE:Salón de eventos infantiles
-TEL;TYPE=CELL:+528332318763
+TEL;TYPE=CELL:+528335342836
 EMAIL:contacto@crazykids.com
 END:VCARD`;
 
@@ -262,13 +271,3 @@ END:VCARD`;
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
