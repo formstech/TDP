@@ -1,10 +1,18 @@
+<?php
+// Este archivo puede funcionar como HTML normal.
+// Solo se guarda como .php por si después deseas agregar funciones backend.
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Contacto · Odontología</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- Calendly widget -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
 <style>
 :root{
@@ -47,7 +55,6 @@ body {
   max-height:95vh;
   overflow:auto;
 }
-/* Foto circular */
 .photo-circle {
   width:160px;
   height:160px;
@@ -59,10 +66,10 @@ body {
   box-shadow:0 8px 20px rgba(255,77,109,0.2);
 }
 .photo-circle img { width:100%; height:100%; object-fit:cover; }
-/* Titulos y rol */
+
 h1 { font-size:1.45rem; margin:10px 0 4px; color:var(--deep); font-weight:700; }
 .role { font-size:1rem; color:var(--muted); margin:0 0 12px; font-weight:600; }
-/* Redes sociales en columna con iconos */
+
 .socials {
   display:flex;
   flex-direction:column;
@@ -71,6 +78,7 @@ h1 { font-size:1.45rem; margin:10px 0 4px; color:var(--deep); font-weight:700; }
   margin-top:22px;
   align-items:center;
 }
+
 .social-btn {
   display:flex;
   flex-direction:column;
@@ -82,34 +90,54 @@ h1 { font-size:1.45rem; margin:10px 0 4px; color:var(--deep); font-weight:700; }
   background: linear-gradient(135deg, var(--accent), var(--accent-light));
   border:none;
   box-shadow:0 10px 22px rgba(255,77,109,0.2);
-  cursor:pointer; text-decoration:none;
-  color:white; font-weight:700;
+  cursor:pointer;
+  text-decoration:none;
+  color:white;
+  font-weight:700;
   font-size:1rem;
   width:65%;
   text-align:center;
   transition: transform .2s ease, box-shadow .2s ease;
 }
+
 .social-btn:hover {
   transform:translateY(-4px);
   box-shadow:0 18px 38px rgba(255,77,109,0.35);
   background: linear-gradient(135deg, #ff6680, #ff99aa);
 }
-/* Botón guardar contacto */
-.cta-row { display:flex; justify-content:center; margin-top:22px; align-items:center; }
+
+.cta-row {
+  display:flex;
+  justify-content:center;
+  margin-top:22px;
+  align-items:center;
+}
+
 .save-btn {
   background: linear-gradient(135deg,#ff4d6d,#ff99aa);
-  color:white; padding:12px 20px;
-  border-radius:16px; border:none;
-  font-weight:800; font-size:1.05rem;
+  color:white;
+  padding:12px 20px;
+  border-radius:16px;
+  border:none;
+  font-weight:800;
+  font-size:1.05rem;
   box-shadow:0 12px 28px rgba(255,77,109,0.25);
   cursor:pointer;
   transition: transform .2s ease, box-shadow .2s ease;
 }
+
 .save-btn:hover {
   transform:translateY(-4px);
   box-shadow:0 20px 44px rgba(255,77,109,0.35);
 }
-.footer-note { font-size:.84rem; color:#ad1457; text-align:center; margin-top:18px; padding-bottom:6px; }
+
+.footer-note {
+  font-size:.84rem;
+  color:#ad1457;
+  text-align:center;
+  margin-top:18px;
+  padding-bottom:6px;
+}
 
 @media(max-width:420px){
   .photo-circle{width:140px;height:140px;}
@@ -118,32 +146,41 @@ h1 { font-size:1.45rem; margin:10px 0 4px; color:var(--deep); font-weight:700; }
 </style>
 </head>
 <body>
+
 <div class="container">
-  <div class="card" id="profileCard">
+  <div class="card">
     <div class="photo-circle">
       <img src="https://i.postimg.cc/qBnMFvD7/Teresa-Guzman-Sin-fondo.png" alt="Foto del Odontólogo">
     </div>
+
     <h1>Dra. Teresa Guzman Gonzalez</h1>
     <div class="role">Odontóloga · Estética & Rehabilitación</div>
 
     <div class="socials">
       <a class="social-btn" href="tel:+528332318763">📱 Llamar</a>
       <a class="social-btn" href="https://wa.me/528332318763" target="_blank">💬 WhatsApp</a>
+
+      <!-- BOTÓN CALENDLY POPUP -->
+      <a href="#"
+         class="social-btn"
+         onclick="Calendly.initPopupWidget({url: 'https://calendly.com/TU_USUARIO'});return false;">
+         📅 Agenda tu cita
+      </a>
+
       <a class="social-btn" href="https://www.instagram.com/tuusuario" target="_blank">📸 Instagram</a>
       <a class="social-btn" href="https://www.facebook.com/luisarteaga" target="_blank">📘 Facebook</a>
-
-      <!-- Calendly widget -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-
     </div>
 
     <div class="cta-row">
       <button class="save-btn" id="saveContact">Guardar contacto</button>
     </div>
+
     <div class="footer-note">Elaborado y diseñado por FORMSTAM</div>
   </div>
 </div>
+
+<!-- Calendly Script -->
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
 <script>
 document.getElementById('saveContact').addEventListener('click', function(){
@@ -174,6 +211,6 @@ END:VCARD`;
   URL.revokeObjectURL(url);
 });
 </script>
+
 </body>
 </html>
-
