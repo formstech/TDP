@@ -1,17 +1,11 @@
-<?php
-// Este archivo puede funcionar como HTML normal.
-// Solo se guarda como .php por si después deseas agregar funciones backend.
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Dra. Teresa Guzman Gonzalez</title>
+<title>Contacto · Odontología</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<!-- Calendly widget -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
 <style>
@@ -21,22 +15,25 @@
   --accent-light:#ffa3b1;   
   --deep:#880e4f;           
   --muted:#ad1457;          
-  --card:#ffffff; 
   --radius:20px;
   --shadow:0 14px 36px rgba(136,14,79,0.12);
 }
+
 *{box-sizing:border-box;}
+
 html, body {
-  height:100%; margin:0;
+  height:100%;
+  margin:0;
   font-family:'Montserrat',sans-serif;
   background: linear-gradient(180deg, #ffe6eb 0%, #fff0f6 100%);
 }
+
 body {
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:0;
 }
+
 .container {
   width:100%;
   max-width:500px;
@@ -46,6 +43,7 @@ body {
   align-items:center;
   padding:16px;
 }
+
 .card {
   background: linear-gradient(145deg, #ffffff, #ffe6eb);
   border-radius:var(--radius);
@@ -55,15 +53,11 @@ body {
   max-height:95vh;
   overflow:auto;
 }
-.photo-circle img {
-  width:110%;
-  height:auto;
-  object-fit:cover;
-}
 
+/* FOTO CIRCULAR CORREGIDA */
 .photo-circle {
-  width:160px;
-  height:160px;
+  width:150px;
+  height:150px;
   border-radius:50%;
   overflow:hidden;
   margin:0 auto 20px;
@@ -74,12 +68,30 @@ body {
   display:flex;
   align-items:center;
   justify-content:center;
+}
 
- }
+.photo-circle img {
+  width:105%;
+  height:auto;
+  object-fit:cover;
+}
 
-h1 { font-size:1.45rem; margin:10px 0 4px; color:var(--deep); font-weight:700; }
-.role { font-size:1rem; color:var(--muted); margin:0 0 12px; font-weight:600; }
+/* Textos */
+h1 {
+  font-size:1.4rem;
+  margin:10px 0 4px;
+  color:var(--deep);
+  font-weight:700;
+}
 
+.role {
+  font-size:1rem;
+  color:var(--muted);
+  margin:0 0 12px;
+  font-weight:600;
+}
+
+/* Botones */
 .socials {
   display:flex;
   flex-direction:column;
@@ -91,10 +103,9 @@ h1 { font-size:1.45rem; margin:10px 0 4px; color:var(--deep); font-weight:700; }
 
 .social-btn {
   display:flex;
-  flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:6px;
+  gap:8px;
   padding:12px 14px;
   border-radius:16px;
   background: linear-gradient(135deg, var(--accent), var(--accent-light));
@@ -105,8 +116,7 @@ h1 { font-size:1.45rem; margin:10px 0 4px; color:var(--deep); font-weight:700; }
   color:white;
   font-weight:700;
   font-size:1rem;
-  width:65%;
-  text-align:center;
+  width:70%;
   transition: transform .2s ease, box-shadow .2s ease;
 }
 
@@ -116,11 +126,11 @@ h1 { font-size:1.45rem; margin:10px 0 4px; color:var(--deep); font-weight:700; }
   background: linear-gradient(135deg, #ff6680, #ff99aa);
 }
 
+/* Botón guardar */
 .cta-row {
   display:flex;
   justify-content:center;
   margin-top:22px;
-  align-items:center;
 }
 
 .save-btn {
@@ -146,12 +156,12 @@ h1 { font-size:1.45rem; margin:10px 0 4px; color:var(--deep); font-weight:700; }
   color:#ad1457;
   text-align:center;
   margin-top:18px;
-  padding-bottom:6px;
 }
 
+/* Responsive */
 @media(max-width:420px){
-  .photo-circle{width:140px;height:140px;}
-  .social-btn{width:80%;font-size:.95rem;padding:10px 12px;}
+  .photo-circle{width:135px;height:135px;}
+  .social-btn{width:85%;}
 }
 </style>
 </head>
@@ -159,6 +169,7 @@ h1 { font-size:1.45rem; margin:10px 0 4px; color:var(--deep); font-weight:700; }
 
 <div class="container">
   <div class="card">
+
     <div class="photo-circle">
       <img src="https://i.postimg.cc/qBnMFvD7/Teresa-Guzman-Sin-fondo.png" alt="Foto del Odontólogo">
     </div>
@@ -170,10 +181,9 @@ h1 { font-size:1.45rem; margin:10px 0 4px; color:var(--deep); font-weight:700; }
       <a class="social-btn" href="tel:+528332318763">📱 Llamar</a>
       <a class="social-btn" href="https://wa.me/528332318763" target="_blank">💬 WhatsApp</a>
 
-      <!-- BOTÓN CALENDLY POPUP -->
       <a href="#"
          class="social-btn"
-         onclick="Calendly.initPopupWidget({url: 'https://calendly.com/luis-arteaga-rocha/30min'});return false;">
+         onclick="Calendly.initPopupWidget({url: 'https://calendly.com/TU_USUARIO'});return false;">
          📅 Agenda tu cita
       </a>
 
@@ -186,11 +196,11 @@ h1 { font-size:1.45rem; margin:10px 0 4px; color:var(--deep); font-weight:700; }
     </div>
 
     <div class="footer-note">Elaborado y diseñado por FORMSTAM</div>
+
   </div>
 </div>
 
-<!-- Calendly Script -->
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 <script>
 document.getElementById('saveContact').addEventListener('click', function(){
@@ -224,9 +234,3 @@ END:VCARD`;
 
 </body>
 </html>
-
-
-
-
-
-
