@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Forms Tech · Consultoría TI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+:root{
+  --dark:#0f172a;
+  --blue:#2563eb;
+  --cyan:#06b6d4;
+  --gray:#1e293b;
+  --light:#f8fafc;
+  --radius:22px;
+  --shadow:0 20px 50px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box;}
+
+html,body{
+  height:100%;
+  margin:0;
+  font-family:'Montserrat',sans-serif;
+  background:
+    radial-gradient(circle at top right,rgba(6,182,212,.15),transparent 40%),
+    radial-gradient(circle at bottom left,rgba(37,99,235,.15),transparent 40%),
+    linear-gradient(180deg,var(--dark) 0%,#020617 100%);
+}
+
+body{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:16px;
+}
+
+.container{
+  width:100%;
+  max-width:520px;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.card{
+  width:100%;
+  background:var(--gray);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:34px 26px;
+  text-align:center;
+  color:white;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Línea decorativa tech */
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:5px;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+}
+
+/* Logo o inicial */
+.logo-circle{
+  width:120px;
+  height:120px;
+  margin:0 auto 20px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--cyan));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2.5rem;
+  font-weight:900;
+  color:white;
+  box-shadow:0 10px 30px rgba(6,182,212,.4);
+}
+
+h1{
+  margin:10px 0 6px;
+  font-size:1.8rem;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.role{
+  font-size:1rem;
+  font-weight:600;
+  color:#cbd5e1;
+  margin-bottom:20px;
+}
+
+/* Servicios */
+.services{
+  font-size:.9rem;
+  color:#94a3b8;
+  margin-bottom:24px;
+  line-height:1.6;
+}
+
+/* Botones */
+.socials{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  align-items:center;
+}
+
+.social-btn{
+  width:85%;
+  padding:14px 18px;
+  border-radius:16px;
+  text-decoration:none;
+  color:white;
+  font-size:1rem;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  transition:.25s;
+}
+
+.social-btn i{
+  font-size:1.2rem;
+}
+
+/* Colores corporativos */
+.call{
+  background:linear-gradient(135deg,var(--blue),#1d4ed8);
+}
+.whatsapp{
+  background:linear-gradient(135deg,#25d366,#128c7e);
+}
+.linkedin{
+  background:linear-gradient(135deg,#0a66c2,#004182);
+}
+.web{
+  background:linear-gradient(135deg,var(--cyan),#0891b2);
+}
+
+.social-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 15px 35px rgba(0,0,0,.4);
+}
+
+/* Guardar contacto */
+.cta-row{
+  margin-top:26px;
+}
+
+.save-btn{
+  padding:14px 28px;
+  border:none;
+  border-radius:18px;
+  font-size:1rem;
+  font-weight:800;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--blue),var(--cyan));
+  color:white;
+  transition:.25s;
+}
+
+.save-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 15px 35px rgba(6,182,212,.4);
+}
+
+.footer-note{
+  margin-top:20px;
+  font-size:.8rem;
+  color:#64748b;
+}
+
+@media(max-width:420px){
+  h1{font-size:1.6rem;}
+  .social-btn{width:95%;}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <div class="card">
+
+    <div class="logo-circle">
+      FT
+    </div>
+
+    <h1>FORMS TECH</h1>
+    <div class="role">Consultoría en Tecnología de Información</div>
+
+    <div class="services">
+      Automatización · Registro Digital · Estadística · 
+      Marketing Digital · Transformación Tecnológica
+    </div>
+
+    <div class="socials">
+
+      <a class="social-btn call" href="tel:+528332318763">
+        <i class="fa-solid fa-phone"></i> Llamar
+      </a>
+
+      <a class="social-btn whatsapp" href="https://wa.me/528332318763" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+      </a>
+
+      <a class="social-btn linkedin" href="#" target="_blank">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+
+      <a class="social-btn web" href="#" target="_blank">
+        <i class="fa-solid fa-globe"></i> Sitio Web
+      </a>
+
+    </div>
+
+    <div class="cta-row">
+      <button class="save-btn" id="saveContact">
+        <i class="fa-solid fa-address-card"></i> Guardar contacto
+      </button>
+    </div>
+
+    <div class="footer-note">
+      © 2026 Forms Tech · Innovación Digital
+    </div>
+
+  </div>
+</div>
+
+<script>
+document.getElementById('saveContact').addEventListener('click',function(){
+  const vcard=`BEGIN:VCARD
+VERSION:3.0
+FN:Forms Tech
+ORG:Forms Tech
+TITLE:Consultoría en Tecnología de Información
+TEL;TYPE=CELL:+528332318763
+EMAIL:contacto@formstech.com
+END:VCARD`;
+
+  const blob=new Blob([vcard],{type:'text/vcard'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='Forms_Tech.vcf';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+});
+</script>
+
+</body>
+</html>
