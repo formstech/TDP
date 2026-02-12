@@ -18,13 +18,12 @@
   --purple:#a855f7;
   --card:#ffffff;
   --radius:26px;
-  --shadow:0 18px 44px rgba(30,78,216,.35);
+  --shadow:0 18px 44px rgba(30,78,216,.25);
 }
 
 *{box-sizing:border-box;}
 
 html,body{
-  height:100%;
   margin:0;
   font-family:'Montserrat',sans-serif;
   background:
@@ -37,16 +36,12 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:12px;
+  padding:20px 12px;
 }
 
 .container{
   width:100%;
-  max-width:520px;
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  max-width:500px;
 }
 
 .card{
@@ -54,35 +49,21 @@ body{
   background:var(--card);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
-  padding:30px 22px 26px;
+  padding:28px 22px 24px;
   text-align:center;
   position:relative;
-  overflow:hidden;
 }
 
-/* Decoración */
-.card::before,
-.card::after{
-  content:"⭐ ⚡ 🎈";
-  position:absolute;
-  font-size:1.6rem;
-  opacity:.18;
-}
-.card::before{top:10px;left:12px;}
-.card::after{bottom:10px;right:12px;}
-
-/* Imagen */
+/* Imagen optimizada */
 .photo-circle{
   width:100%;
-  max-width:320px;
-  height:190px;
-  margin:0 auto 20px;
-  border-radius:22px;
+  max-width:340px;
+  height:220px;
+  margin:0 auto 18px;
+  border-radius:24px;
   overflow:hidden;
-  border:5px solid transparent;
-  background:
-    linear-gradient(135deg,var(--cyan),var(--yellow),var(--orange),var(--pink)) border-box;
-  box-shadow:0 14px 34px rgba(0,0,0,.35);
+  background:linear-gradient(135deg,var(--cyan),var(--yellow),var(--orange),var(--pink));
+  padding:6px;
 }
 
 .photo-circle img{
@@ -90,116 +71,112 @@ body{
   height:100%;
   object-fit:cover;
   object-position:center;
-  transform:scale(0.88);
+  border-radius:18px;
 }
 
 h1{
-  margin:8px 0 6px;
-  font-size:1.75rem;
+  margin:6px 0 4px;
+  font-size:1.8rem;
   font-weight:900;
   color:var(--blue);
 }
 
 .role{
-  font-size:1.05rem;
+  font-size:1rem;
   font-weight:800;
   color:var(--orange);
+  margin-bottom:10px;
 }
 
-/* Redes */
+/* BOTONES */
 .socials{
   display:flex;
   flex-direction:column;
-  gap:14px;
-  margin-top:26px;
+  gap:12px;
+  margin-top:20px;
   align-items:center;
 }
 
 .social-btn{
-  width:82%;
+  width:90%;
   padding:14px 18px;
-  border-radius:22px;
+  border-radius:20px;
   text-decoration:none;
   color:white;
-  font-size:1.05rem;
+  font-size:1rem;
   font-weight:800;
   display:flex;
   align-items:center;
-  gap:14px;
-  box-shadow:0 14px 32px rgba(0,0,0,.35);
+  gap:12px;
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
   transition:.25s;
+  position:relative;
+  overflow:hidden;
 }
 
 .social-btn i{
-  font-size:1.5rem;
-  animation:bounce 2s infinite ease-in-out;
+  font-size:1.3rem;
 }
 
 .social-btn:hover{
-  transform:translateY(-4px) scale(1.03);
+  transform:translateY(-3px) scale(1.02);
 }
 
-/* Colores por red */
-.call{
-  background:linear-gradient(135deg,#22c55e,var(--cyan));
-}
-.whatsapp{
-  background:linear-gradient(135deg,#25d366,#128c7e);
-}
-.instagram{
-  background:linear-gradient(135deg,var(--orange),var(--pink),var(--purple));
-}
-.tiktok{
-  background:linear-gradient(135deg,#000000,#FE2C55,#25F4EE);
-}
-.facebook{
-  background:linear-gradient(135deg,#1877f2,var(--blue));
-}
-  .promo{
+/* PROMO DESTACADA */
+.promo{
   background:linear-gradient(135deg,#facc15,#f97316,#ef4444);
 }
 
-
-@keyframes bounce{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-5px);}
+.promo::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-70%;
+  width:50%;
+  height:100%;
+  background:linear-gradient(120deg,rgba(255,255,255,.2),rgba(255,255,255,.6),rgba(255,255,255,.2));
+  transform:skewX(-25deg);
+  animation:shine 3s infinite;
 }
+
+@keyframes shine{
+  0%{left:-70%;}
+  100%{left:120%;}
+}
+
+/* Redes */
+.call{background:linear-gradient(135deg,#22c55e,var(--cyan));}
+.whatsapp{background:linear-gradient(135deg,#25d366,#128c7e);}
+.instagram{background:linear-gradient(135deg,var(--orange),var(--pink),var(--purple));}
+.tiktok{background:linear-gradient(135deg,#000000,#FE2C55,#25F4EE);}
+.facebook{background:linear-gradient(135deg,#1877f2,var(--blue));}
 
 /* Guardar contacto */
-.cta-row{
-  margin-top:28px;
-}
+.cta-row{margin-top:22px;}
+
 .save-btn{
-  padding:15px 30px;
+  width:90%;
+  padding:14px;
   border:none;
-  border-radius:24px;
-  font-size:1.1rem;
+  border-radius:20px;
+  font-size:1rem;
   font-weight:900;
   color:#1e293b;
   cursor:pointer;
   background:linear-gradient(135deg,var(--yellow),var(--orange));
-  box-shadow:0 14px 32px rgba(250,204,21,.45);
+  box-shadow:0 10px 24px rgba(250,204,21,.35);
   transition:.25s;
 }
+
 .save-btn:hover{
-  transform:translateY(-4px) scale(1.05);
+  transform:translateY(-3px) scale(1.03);
 }
 
-/* Footer */
 .footer-note{
-  margin-top:20px;
-  font-size:.85rem;
-  color:#475569;
+  margin-top:18px;
+  font-size:.8rem;
+  color:#64748b;
   font-weight:600;
-}
-
-@media(max-width:420px){
-  .photo-circle{
-    max-width:280px;
-    height:170px;
-  }
-  h1{font-size:1.55rem;}
-  .social-btn{width:92%;}
 }
 </style>
 </head>
@@ -216,28 +193,32 @@ h1{
     <div class="role">🎉 Eventos Infantiles</div>
 
     <div class="socials">
+
+      <!-- PROMOCION PRIMERO -->
+      <a class="social-btn promo" href="https://i.postimg.cc/4N8M2bDs/promociones.jpg" target="_blank">
+        <i class="fa-solid fa-gift"></i> 🎁 Promociones
+      </a>
+
       <a class="social-btn call" href="tel:+528335342836">
         <i class="fa-solid fa-phone"></i> Llamar
       </a>
 
-      <a class="social-btn whatsapp" href="https://wa.me/528335342836" target="_blank">
+      <a class="social-btn whatsapp" href="https://wa.me/528335342836?text=Hola%20quiero%20información%20de%20las%20promociones" target="_blank">
         <i class="fa-brands fa-whatsapp"></i> WhatsApp
       </a>
 
-      <a class="social-btn instagram" href="https://www.instagram.com/crazykidstam?igsh=MXdqbXdvcG00dXBmMw==" target="_blank">
+      <a class="social-btn instagram" href="https://www.instagram.com/crazykidstam" target="_blank">
         <i class="fa-brands fa-instagram"></i> Instagram
       </a>
 
-      <a class="social-btn tiktok" href="https://www.tiktok.com/@crazy.kids.tampic?_r=1&_t=ZS-93mzL2gjd72" target="_blank">
+      <a class="social-btn tiktok" href="https://www.tiktok.com/@crazy.kids.tampic" target="_blank">
         <i class="fa-brands fa-tiktok"></i> TikTok
       </a>
 
-      <a class="social-btn facebook" href="https://www.facebook.com/share/1E5xLzNd8G/?mibextid=wwXIfr" target="_blank">
+      <a class="social-btn facebook" href="https://www.facebook.com" target="_blank">
         <i class="fa-brands fa-facebook-f"></i> Facebook
       </a>
-      <a class="social-btn promo" href="https://i.postimg.cc/4N8M2bDs/promociones.jpg" target="_blank">
-    <i class="fa-solid fa-gift"></i> Promociones
-  </a>
+
     </div>
 
     <div class="cta-row">
@@ -261,7 +242,6 @@ FN:Crazy Kids
 ORG:Crazy Kids
 TITLE:Salón de eventos infantiles
 TEL;TYPE=CELL:+528335342836
-EMAIL:contacto@crazykids.com
 END:VCARD`;
 
   const blob=new Blob([vcard],{type:'text/vcard'});
@@ -278,7 +258,3 @@ END:VCARD`;
 
 </body>
 </html>
-
-
-
-
