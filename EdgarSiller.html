@@ -3,23 +3,21 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Contacto · Edgar Siller | Nutriólogo</title>
+<title>Contacto · L.N. Edgar Arturo Siller Rubio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<!-- Calendly -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
 <style>
 :root{
-  --black:#0f0f0f;
-  --card:#1a1a1a;
+  --black:#0c0c0c;
+  --card:#161616;
   --gold:#c6a75e;
   --gold-light:#e6c77a;
-  --text:#f5f5f5;
-  --muted:#bdbdbd;
+  --text:#f2f2f2;
+  --muted:#9e9e9e;
   --radius:22px;
-  --shadow:0 20px 50px rgba(0,0,0,0.6);
+  --shadow:0 25px 60px rgba(0,0,0,0.7);
 }
 
 *{box-sizing:border-box;}
@@ -28,7 +26,7 @@ html, body {
   height:100%;
   margin:0;
   font-family:'Montserrat',sans-serif;
-  background:linear-gradient(180deg,#000000,#111111);
+  background:radial-gradient(circle at top,#111 0%,#000 60%);
 }
 
 body {
@@ -40,10 +38,6 @@ body {
 .container {
   width:100%;
   max-width:500px;
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
   padding:20px;
 }
 
@@ -51,9 +45,15 @@ body {
   background:var(--card);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
-  padding:40px 28px;
+  padding:45px 28px;
   text-align:center;
-  border:1px solid rgba(198,167,94,0.25);
+  border:1px solid rgba(198,167,94,0.2);
+  animation:fadeIn .8s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(15px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
 /* FOTO */
@@ -63,8 +63,8 @@ body {
   border-radius:50%;
   overflow:hidden;
   margin:0 auto 28px;
-  border:4px solid var(--gold);
-  box-shadow:0 0 35px rgba(198,167,94,0.3);
+  border:3px solid var(--gold);
+  box-shadow:0 0 40px rgba(198,167,94,0.25);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -72,26 +72,32 @@ body {
 }
 
 .photo-circle img {
-  width:85%;
+  width:90%;
   height:auto;
   object-fit:contain;
 }
 
 /* TEXTOS */
 h1 {
-  font-size:1.5rem;
-  margin:10px 0 6px;
+  font-size:1.45rem;
+  margin:10px 0 4px;
   color:var(--gold-light);
   font-weight:700;
   letter-spacing:1px;
 }
 
+.gold-line{
+  width:60px;
+  height:2px;
+  background:var(--gold);
+  margin:10px auto 15px;
+}
+
 .role {
-  font-size:1rem;
+  font-size:.95rem;
   color:var(--muted);
-  margin-bottom:25px;
-  font-weight:500;
-  letter-spacing:.5px;
+  margin-bottom:28px;
+  letter-spacing:.6px;
 }
 
 /* BOTONES */
@@ -106,56 +112,55 @@ h1 {
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:8px;
-  padding:14px;
-  border-radius:14px;
-  background:linear-gradient(135deg,#1f1f1f,#2b2b2b);
-  border:1px solid rgba(198,167,94,0.3);
+  padding:13px;
+  border-radius:12px;
+  background:#1e1e1e;
+  border:1px solid rgba(198,167,94,0.25);
   text-decoration:none;
   color:var(--text);
-  font-weight:600;
+  font-weight:500;
   font-size:.95rem;
   width:80%;
-  transition: all .3s ease;
+  transition:.3s ease;
 }
 
 .social-btn:hover {
   background:linear-gradient(135deg,var(--gold),var(--gold-light));
   color:#000;
-  transform:translateY(-4px);
-  box-shadow:0 15px 35px rgba(198,167,94,0.4);
+  transform:translateY(-3px);
+  box-shadow:0 15px 40px rgba(198,167,94,0.35);
 }
 
 .cta-row {
-  margin-top:26px;
+  margin-top:28px;
 }
 
 .save-btn {
   background:linear-gradient(135deg,var(--gold),var(--gold-light));
   color:#000;
-  padding:13px 26px;
-  border-radius:16px;
+  padding:12px 26px;
+  border-radius:14px;
   border:none;
-  font-weight:800;
-  font-size:1rem;
+  font-weight:700;
+  font-size:.95rem;
   cursor:pointer;
-  transition: all .3s ease;
+  transition:.3s ease;
   box-shadow:0 15px 40px rgba(198,167,94,0.4);
 }
 
 .save-btn:hover {
   transform:translateY(-4px);
-  box-shadow:0 25px 55px rgba(198,167,94,0.6);
+  box-shadow:0 25px 60px rgba(198,167,94,0.6);
 }
 
 .footer-note {
-  font-size:.8rem;
-  color:#777;
-  margin-top:22px;
+  font-size:.75rem;
+  color:#666;
+  margin-top:25px;
 }
 
 @media(max-width:420px){
-  .photo-circle{width:170px;height:170px;}
+  .photo-circle{width:165px;height:165px;}
   .social-btn{width:90%;}
 }
 </style>
@@ -166,12 +171,12 @@ h1 {
   <div class="card">
 
     <div class="photo-circle">
-      <!-- CAMBIAR FOTO -->
-      <img src="https://i.postimg.cc/C1Xpc6ML/Whats-App-Image-2026-02-17-at-3-26-13-PM.jpg" alt="Foto Edgar Siller">
+      <img src="https://i.postimg.cc/C1Xpc6ML/Whats-App-Image-2026-02-17-at-3-26-13-PM.jpg" alt="Edgar Siller">
     </div>
 
-    <h1>Edgar Siller</h1>
-    <div class="role">Nutriller Asesoria Nutricional</div>
+    <h1>L.N. Edgar Arturo Siller Rubio</h1>
+    <div class="gold-line"></div>
+    <div class="role">Nutriller · Asesoría Nutricional Personalizada</div>
 
     <div class="socials">
       <a class="social-btn" href="tel:+523331161760">📱 Llamar</a>
@@ -180,18 +185,18 @@ h1 {
       <a href="#"
          class="social-btn"
          onclick="Calendly.initPopupWidget({url: 'https://calendly.com/edgar-siller/consulta'});return false;">
-         📅 Agenda tu consulta
+         📅 Agendar Consulta
       </a>
 
-      <a class="social-btn" href="#" target="_blank">📸 Instagram</a>
-      <a class="social-btn" href="#" target="_blank">📘 Facebook</a>
+      <a class="social-btn" href="#">📸 Instagram</a>
+      <a class="social-btn" href="#">📘 Facebook</a>
     </div>
 
     <div class="cta-row">
       <button class="save-btn" id="saveContact">Guardar contacto</button>
     </div>
 
-    <div class="footer-note">Form Tech | 8332318763</div>
+    <div class="footer-note">Desarrollado por Form Tech</div>
 
   </div>
 </div>
@@ -200,16 +205,16 @@ h1 {
 
 <script>
 document.getElementById('saveContact').addEventListener('click', function(){
-  const fn = "L.N. Edgar  Arturo Siller Rubio";
+  const fn = "L.N. Edgar Arturo Siller Rubio";
   const tel = "+523331161760";
   const email = "edgar.nutriller@gmail.com";
-  const org = "Consulta Nutricional";
-  const title = "Nutriólogo";
+  const org = "Nutriller Asesoría Nutricional";
+  const title = "Licenciado en Nutrición";
 
   const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:${fn}
-N:Siller;Edgar;;;
+N:Siller Rubio;Edgar Arturo;;;
 TITLE:${title}
 ORG:${org}
 TEL;TYPE=CELL:${tel}
@@ -230,7 +235,3 @@ END:VCARD`;
 
 </body>
 </html>
-
-
-
-
