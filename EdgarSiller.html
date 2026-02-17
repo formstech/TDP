@@ -33,32 +33,33 @@ body{
   padding:20px;
 }
 
+/* CONTENEDOR */
 .container{
   width:100%;
-  max-width:480px;
+  max-width:520px;
 }
 
+/* TARJETA */
 .card{
   background:var(--card);
   border-radius:var(--radius);
-  padding:45px 25px;
+  padding:50px 30px;
   text-align:center;
   border:1px solid rgba(198,167,94,0.2);
   box-shadow:0 25px 60px rgba(0,0,0,0.7);
 }
 
-/* FOTO COMO FONDO */
+/* FOTO */
 .photo-circle{
-  width:200px;
-  height:200px;
+  width:190px;
+  height:190px;
   border-radius:50%;
   margin:0 auto 35px;
   border:3px solid var(--gold);
   overflow:hidden;
-  position:relative;
 
   background-image:url('https://i.postimg.cc/C1Xpc6ML/Whats-App-Image-2026-02-17-at-3-26-13-PM.jpg');
-  background-size:115%;
+  background-size:110%;
   background-position:center 25%;
   background-repeat:no-repeat;
 
@@ -67,15 +68,8 @@ body{
     inset 0 0 35px rgba(0,0,0,0.6);
 }
 
-@media(max-width:480px){
-  .photo-circle{
-    width:160px;
-    height:160px;
-  }
-}
-
 h1{
-  font-size:1.3rem;
+  font-size:1.4rem;
   margin-bottom:6px;
   color:var(--gold-light);
   font-weight:700;
@@ -90,7 +84,7 @@ h1{
 }
 
 .role{
-  font-size:.95rem;
+  font-size:1rem;
   color:var(--muted);
   margin-bottom:30px;
 }
@@ -98,19 +92,20 @@ h1{
 .socials{
   display:flex;
   flex-direction:column;
-  gap:14px;
+  gap:16px;
   align-items:center;
 }
 
 .social-btn{
-  padding:12px;
-  border-radius:12px;
+  padding:14px;
+  border-radius:14px;
   background:#1e1e1e;
   border:1px solid rgba(198,167,94,0.25);
   text-decoration:none;
   color:var(--text);
   font-weight:500;
-  width:85%;
+  width:100%;
+  max-width:380px;
   transition:.3s ease;
 }
 
@@ -122,11 +117,11 @@ h1{
 }
 
 .save-btn{
-  margin-top:28px;
+  margin-top:32px;
   background:linear-gradient(135deg,var(--gold),var(--gold-light));
   color:#000;
-  padding:12px 26px;
-  border-radius:14px;
+  padding:14px 30px;
+  border-radius:16px;
   border:none;
   font-weight:700;
   cursor:pointer;
@@ -140,9 +135,51 @@ h1{
 }
 
 .footer-note{
-  font-size:.75rem;
+  font-size:.8rem;
   color:#666;
-  margin-top:25px;
+  margin-top:28px;
+}
+
+/* RESPONSIVE EXTRA PEQUEÑO */
+@media(max-width:480px){
+
+  .card{
+    padding:40px 20px;
+  }
+
+  .photo-circle{
+    width:150px;
+    height:150px;
+  }
+
+  h1{
+    font-size:1.2rem;
+  }
+
+  .role{
+    font-size:.9rem;
+  }
+}
+
+/* DESKTOP GRANDE */
+@media(min-width:900px){
+
+  .container{
+    max-width:600px;
+  }
+
+  .card{
+    padding:60px 50px;
+  }
+
+  .photo-circle{
+    width:220px;
+    height:220px;
+  }
+
+  h1{
+    font-size:1.6rem;
+  }
 }
 </style>
 </head>
@@ -162,13 +199,9 @@ h1{
       <a class="social-btn" href="tel:+523331161760">📱 Llamar</a>
       <a class="social-btn" href="https://wa.me/523331161760" target="_blank">💬 WhatsApp</a>
       <a class="social-btn" href="#">📅 Agendar Consulta</a>
-      <a class="social-btn" href="https://www.instagram.com/nutriller?igsh=aGUzdmZhMWRxb3Vt" target="_blank">📸 Instagram</a>
-      <a class="social-btn" href="https://www.facebook.com/share/1C6XDxuaE4/?mibextid=wwXIfr" target="_blank">📘 Facebook</a>
-    </div>
-    <!-- NUEVO BOTÓN APP -->
-      <a class="social-btn" href="https://www.facebook.com/share/r/1Bv2T6ZEuv/?mibextid=wwXIfr" target="_blank">
-        📲 Conoce nuestra App de Nutrición
-      </a>
+      <a class="social-btn" href="https://www.instagram.com/nutriller" target="_blank">📸 Instagram</a>
+      <a class="social-btn" href="https://www.facebook.com" target="_blank">📘 Facebook</a>
+      <a class="social-btn" href="https://tuenlaceapp.com" target="_blank">📲 Conoce nuestra App de Nutrición</a>
     </div>
 
     <button class="save-btn">Guardar contacto</button>
@@ -180,4 +213,3 @@ h1{
 
 </body>
 </html>
-
