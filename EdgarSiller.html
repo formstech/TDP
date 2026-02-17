@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Contacto · Nutriólogo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- Calendly -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
+<style>
+:root{
+  --accent:#2e7d32;         
+  --accent-light:#66bb6a;   
+  --deep:#1b5e20;           
+  --muted:#388e3c;          
+  --radius:22px;
+  --shadow:0 14px 36px rgba(27,94,32,0.15);
+}
+
+*{box-sizing:border-box;}
+
+html, body {
+  height:100%;
+  margin:0;
+  font-family:'Montserrat',sans-serif;
+  background: linear-gradient(180deg, #e8f5e9 0%, #f1f8e9 100%);
+}
+
+body {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.container {
+  width:100%;
+  max-width:500px;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.card {
+  background: linear-gradient(145deg, #ffffff, #e8f5e9);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:35px 25px;
+  text-align:center;
+}
+
+.photo-circle {
+  width:190px;
+  height:190px;
+  border-radius:50%;
+  overflow:hidden;
+  margin:0 auto 25px;
+  border:5px solid var(--accent);
+  background:linear-gradient(180deg,#c8e6c9,#81c784);
+  box-shadow:0 10px 25px rgba(46,125,50,0.25);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.photo-circle img {
+  width:85%;
+  height:auto;
+  object-fit:contain;
+}
+
+h1 {
+  font-size:1.45rem;
+  margin:10px 0 4px;
+  color:var(--deep);
+  font-weight:700;
+}
+
+.role {
+  font-size:1rem;
+  color:var(--muted);
+  margin-bottom:18px;
+  font-weight:600;
+}
+
+.socials {
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  align-items:center;
+}
+
+.social-btn {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 14px;
+  border-radius:16px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  box-shadow:0 10px 22px rgba(46,125,50,0.25);
+  text-decoration:none;
+  color:white;
+  font-weight:700;
+  font-size:1rem;
+  width:75%;
+  transition: all .25s ease;
+}
+
+.social-btn:hover {
+  transform:translateY(-4px);
+  box-shadow:0 18px 38px rgba(46,125,50,0.35);
+}
+
+.cta-row {
+  margin-top:22px;
+}
+
+.save-btn {
+  background: linear-gradient(135deg,#2e7d32,#66bb6a);
+  color:white;
+  padding:12px 22px;
+  border-radius:16px;
+  border:none;
+  font-weight:800;
+  font-size:1.05rem;
+  box-shadow:0 12px 28px rgba(46,125,50,0.25);
+  cursor:pointer;
+  transition: all .25s ease;
+}
+
+.save-btn:hover {
+  transform:translateY(-4px);
+  box-shadow:0 20px 44px rgba(46,125,50,0.35);
+}
+
+.footer-note {
+  font-size:.85rem;
+  color:#2e7d32;
+  margin-top:18px;
+}
+
+@media(max-width:420px){
+  .photo-circle{width:170px;height:170px;}
+  .social-btn{width:90%;}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+
+    <div class="photo-circle">
+      <!-- CAMBIAR FOTO -->
+      <img src="https://i.postimg.cc/qBnMFvD7/Teresa-Guzman-Sin-fondo.png" alt="Foto Edgar Siller">
+    </div>
+
+    <h1>Edgar Siller</h1>
+    <div class="role">Nutriólogo · Nutrición Clínica & Control de Peso</div>
+
+    <div class="socials">
+      <a class="social-btn" href="tel:+528331234567">📱 Llamar</a>
+      <a class="social-btn" href="https://wa.me/528331234567" target="_blank">💬 WhatsApp</a>
+
+      <a href="#"
+         class="social-btn"
+         onclick="Calendly.initPopupWidget({url: 'https://calendly.com/edgar-siller/consulta'});return false;">
+         📅 Agenda tu consulta
+      </a>
+
+      <a class="social-btn" href="https://www.instagram.com/tuusuario" target="_blank">📸 Instagram</a>
+      <a class="social-btn" href="https://www.facebook.com/tuusuario" target="_blank">📘 Facebook</a>
+    </div>
+
+    <div class="cta-row">
+      <button class="save-btn" id="saveContact">Guardar contacto</button>
+    </div>
+
+    <div class="footer-note">Form Tech | 8332318763</div>
+
+  </div>
+</div>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<script>
+document.getElementById('saveContact').addEventListener('click', function(){
+  const fn = "Edgar Siller";
+  const tel = "+528331234567";
+  const email = "contacto@nutriedgarsiller.com";
+  const org = "Consulta Nutricional";
+  const title = "Nutriólogo";
+
+  const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:${fn}
+N:Siller;Edgar;;;
+TITLE:${title}
+ORG:${org}
+TEL;TYPE=CELL:${tel}
+EMAIL;TYPE=INTERNET:${email}
+END:VCARD`;
+
+  const blob = new Blob([vcard], {type:'text/vcard'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = fn.replace(/\s+/g,'_')+'.vcf';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+});
+</script>
+
+</body>
+</html>
