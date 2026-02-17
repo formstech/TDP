@@ -49,7 +49,7 @@ body {
   border:1px solid rgba(198,167,94,0.2);
 }
 
-/* 🔥 FOTO AJUSTADA PARA QUE NO SE CORTE */
+/* FOTO PERFECTA RESPONSIVE */
 .photo-circle {
   width:210px;
   height:210px;
@@ -65,10 +65,21 @@ body {
 }
 
 .photo-circle img {
-  width:80%;              /* MÁS PEQUEÑA */
-  height:80%;
-  object-fit:contain;     /* NO RECORTA */
-  border-radius:50%;
+  max-width:75%;      /* SOLO ancho controlado */
+  height:auto;        /* mantiene proporción */
+  object-fit:contain; /* nunca recorta */
+}
+
+/* AJUSTE PARA CELULAR */
+@media(max-width:420px){
+  .photo-circle{
+    width:170px;
+    height:170px;
+  }
+
+  .photo-circle img{
+    max-width:70%;
+  }
 }
 
 /* TEXTOS */
@@ -152,11 +163,6 @@ h1 {
   color:#666;
   margin-top:25px;
 }
-
-@media(max-width:420px){
-  .photo-circle{width:180px;height:180px;}
-  .social-btn{width:90%;}
-}
 </style>
 </head>
 <body>
@@ -229,4 +235,3 @@ END:VCARD`;
 
 </body>
 </html>
-
