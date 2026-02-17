@@ -6,7 +6,6 @@
 <title>Contacto · L.N. Edgar Arturo Siller Rubio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
 <style>
 :root{
@@ -18,7 +17,11 @@
   --radius:22px;
 }
 
-*{box-sizing:border-box;margin:0;padding:0;}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 body{
   font-family:'Montserrat',sans-serif;
@@ -38,35 +41,33 @@ body{
 .card{
   background:var(--card);
   border-radius:var(--radius);
-  padding:40px 25px;
+  padding:45px 25px;
   text-align:center;
   border:1px solid rgba(198,167,94,0.2);
   box-shadow:0 25px 60px rgba(0,0,0,0.7);
 }
 
-/* 🔥 CÍRCULO PROPORCIONAL Y ESTABLE */
+/* 🔥 CÍRCULO FIRME Y ELEGANTE */
 .photo-circle{
   width:200px;
   height:200px;
   border-radius:50%;
-  margin:0 auto 30px;
-  position:relative;
+  margin:0 auto 35px;
   border:3px solid var(--gold);
-  
-  /* 🔥 fondo elegante interno */
+
   background:radial-gradient(circle at 30% 30%, #1f1f1f 0%, #000 70%);
-  
+
   box-shadow:
     0 0 40px rgba(198,167,94,0.25),
-    inset 0 0 25px rgba(0,0,0,0.9); /* sombra interna */
-  
+    inset 0 0 25px rgba(0,0,0,0.9);
+
   display:flex;
   align-items:center;
   justify-content:center;
   overflow:hidden;
 }
 
-/* Imagen ligeramente más grande para verse firme */
+/* Imagen proporcional */
 .photo-circle img{
   width:78%;
   height:auto;
@@ -74,16 +75,7 @@ body{
   display:block;
 }
 
-
-/* 🔥 IMAGEN REDUCIDA PROPORCIONALMENTE */
-.photo-circle img{
-  width:75%;
-  height:auto;
-  object-fit:contain;
-  display:block;
-}
-
-/* RESPONSIVE SOLO REDUCE EL CÍRCULO */
+/* Responsive móvil */
 @media(max-width:480px){
   .photo-circle{
     width:160px;
@@ -94,22 +86,23 @@ body{
 /* TEXTOS */
 h1{
   font-size:1.3rem;
-  margin-bottom:5px;
+  margin-bottom:6px;
   color:var(--gold-light);
   font-weight:700;
+  letter-spacing:.5px;
 }
 
 .gold-line{
   width:60px;
   height:2px;
   background:var(--gold);
-  margin:10px auto 15px;
+  margin:10px auto 18px;
 }
 
 .role{
   font-size:.95rem;
   color:var(--muted);
-  margin-bottom:28px;
+  margin-bottom:30px;
 }
 
 /* BOTONES */
@@ -135,10 +128,12 @@ h1{
 .social-btn:hover{
   background:linear-gradient(135deg,var(--gold),var(--gold-light));
   color:#000;
+  transform:translateY(-3px);
+  box-shadow:0 15px 40px rgba(198,167,94,0.35);
 }
 
 .save-btn{
-  margin-top:25px;
+  margin-top:28px;
   background:linear-gradient(135deg,var(--gold),var(--gold-light));
   color:#000;
   padding:12px 26px;
@@ -146,14 +141,23 @@ h1{
   border:none;
   font-weight:700;
   cursor:pointer;
+  transition:.3s ease;
+  box-shadow:0 15px 40px rgba(198,167,94,0.4);
 }
+
+.save-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 25px 60px rgba(198,167,94,0.6);
+}
+
 .footer-note{
   font-size:.75rem;
   color:#666;
-  margin-top:20px;
+  margin-top:25px;
 }
 </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -184,4 +188,3 @@ h1{
 
 </body>
 </html>
-
