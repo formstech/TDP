@@ -33,14 +33,12 @@ body{
   padding:20px;
 }
 
-/* CONTENEDOR */
 .container{
   width:100%;
   max-width:520px;
   animation:fadeIn 1s ease;
 }
 
-/* TARJETA */
 .card{
   background:var(--card);
   backdrop-filter:blur(18px);
@@ -56,7 +54,6 @@ body{
   transform:translateY(-6px);
 }
 
-/* FOTO */
 .photo-circle{
   width:200px;
   height:200px;
@@ -127,6 +124,18 @@ h1{
   margin-top:30px;
 }
 
+#qrBox{
+  display:none;
+  margin-top:15px;
+  text-align:center;
+}
+
+#qrBox img{
+  border-radius:18px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.6);
+  border:1px solid rgba(198,167,94,0.3);
+}
+
 @keyframes fadeIn{
   from{opacity:0;transform:translateY(20px);}
   to{opacity:1;transform:translateY(0);}
@@ -153,8 +162,12 @@ h1{
       <a class="social-btn" href="https://www.facebook.com/share/1FuYqK4NwT/?mibextid=wwXIfr" target="_blank">📘 Facebook</a>
       <a class="social-btn" href="https://www.facebook.com/share/r/1Bv2T6ZEuv/?mibextid=wwXIfr" target="_blank">📲 Conoce nuestra App</a>
 
-      <!-- BOTÓN COMPARTIR -->
       <button class="social-btn" onclick="shareCard()">📤 Compartir tarjeta</button>
+
+      <!-- QR respaldo -->
+      <div id="qrBox">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=<?php echo urlencode($currentURL); ?>" alt="QR">
+      </div>
     </div>
 
     <div class="footer-note">Desarrollado por Form Tech</div>
@@ -168,10 +181,10 @@ function shareCard(){
     navigator.share({
       title: "Tarjeta Digital - Edgar Siller",
       text: "Te comparto mi tarjeta digital",
-      url: "https://formstech.github.io/TDP/EdgarSiller.html"
+      url: "<?php echo $currentURL; ?>"
     });
   } else {
-    alert("Tu dispositivo no soporta compartir directo. Copia el enlace manualmente.");
+    document.getElementById("qrBox").style.display = "block";
   }
 }
 </script>
