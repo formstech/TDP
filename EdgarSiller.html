@@ -10,10 +10,11 @@ $currentURL = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 <title>Contacto · L.N. Edgar Arturo Siller Rubio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <style>
 :root{
-  --card:rgba(22,22,22,0.75);
+  --card:rgba(22,22,22,0.8);
   --gold:#c6a75e;
   --gold-light:#e6c77a;
   --text:#f5f5f5;
@@ -33,14 +34,8 @@ body{
   padding:20px;
 }
 
-/* CONTENEDOR */
-.container{
-  width:100%;
-  max-width:520px;
-  animation:fadeIn 1s ease;
-}
+.container{width:100%;max-width:520px;}
 
-/* TARJETA */
 .card{
   background:var(--card);
   backdrop-filter:blur(18px);
@@ -49,14 +44,8 @@ body{
   text-align:center;
   border:1px solid rgba(198,167,94,0.25);
   box-shadow:0 30px 70px rgba(0,0,0,0.8);
-  transition:.4s ease;
 }
 
-.card:hover{
-  transform:translateY(-6px);
-}
-
-/* FOTO */
 .photo-circle{
   width:200px;
   height:200px;
@@ -68,9 +57,8 @@ body{
   background-size:110%;
   background-position:center 25%;
   background-repeat:no-repeat;
-  box-shadow:
-    0 0 60px rgba(198,167,94,0.35),
-    inset 0 0 40px rgba(0,0,0,0.6);
+  box-shadow:0 0 60px rgba(198,167,94,0.35),
+             inset 0 0 40px rgba(0,0,0,0.6);
 }
 
 h1{
@@ -103,22 +91,20 @@ h1{
 .social-btn{
   padding:15px;
   border-radius:16px;
-  background:rgba(30,30,30,0.8);
+  background:rgba(30,30,30,0.85);
   border:1px solid rgba(198,167,94,0.25);
-  text-decoration:none;
   color:var(--text);
   font-weight:600;
   width:100%;
   max-width:380px;
-  transition:.3s ease;
   cursor:pointer;
+  transition:.3s ease;
 }
 
 .social-btn:hover{
   background:linear-gradient(135deg,var(--gold),var(--gold-light));
   color:#000;
   transform:translateY(-4px);
-  box-shadow:0 20px 45px rgba(198,167,94,0.4);
 }
 
 .footer-note{
@@ -127,9 +113,49 @@ h1{
   margin-top:30px;
 }
 
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(20px);}
-  to{opacity:1;transform:translateY(0);}
+/* MODAL QR */
+#qrModal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  visibility:hidden;
+  transition:.4s ease;
+}
+
+#qrModal.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.qr-box{
+  background:#161616;
+  padding:35px;
+  border-radius:24px;
+  text-align:center;
+  border:1px solid rgba(198,167,94,.4);
+  transform:scale(.8);
+  transition:.4s ease;
+}
+
+#qrModal.active .qr-box{
+  transform:scale(1);
+}
+
+.qr-box h2{
+  color:var(--gold-light);
+  margin-bottom:20px;
+}
+
+.close-btn{
+  margin-top:20px;
+  padding:10px 25px;
+  border-radius:12px;
+  border:none;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -146,19 +172,21 @@ h1{
     <div class="role">Nutriller · Asesoría Nutricional Personalizada</div>
 
     <div class="socials">
-      <a class="social-btn" href="tel:+523331161760">📱 Llamar</a>
-      <a class="social-btn" href="https://wa.me/523331161760" target="_blank">💬 WhatsApp</a>
-      <a class="social-btn" href="#">📅 Agendar Consulta</a>
-      <a class="social-btn" href="https://www.instagram.com/nutriller" target="_blank">📸 Instagram</a>
-      <a class="social-btn" href="https://www.facebook.com/share/1FuYqK4NwT/?mibextid=wwXIfr" target="_blank">📘 Facebook</a>
-      <a class="social-btn" href="https://www.facebook.com/share/r/1Bv2T6ZEuv/?mibextid=wwXIfr" target="_blank">📲 Conoce nuestra App</a>
-
-      <!-- BOTÓN COMPARTIR -->
       <button class="social-btn" onclick="shareCard()">📤 Compartir tarjeta</button>
+      <button class="social-btn" onclick="showQR()">🔳 Mostrar Código QR</button>
     </div>
 
     <div class="footer-note">Desarrollado por Form Tech</div>
 
+  </div>
+</div>
+
+<!-- MODAL QR -->
+<div id="qrModal">
+  <div class="qr-box">
+    <h2>Escanea mi tarjeta</h2>
+    <div id="qrcode"></div>
+    <button class="close-btn" onclick="closeQR()">Cerrar</button>
   </div>
 </div>
 
@@ -168,14 +196,30 @@ function shareCard(){
     navigator.share({
       title: "Tarjeta Digital - Edgar Siller",
       text: "Te comparto mi tarjeta digital",
-      url: "https://formstech.github.io/TDP/EdgarSiller.html"
+      url: "<?php echo $currentURL; ?>"
     });
   } else {
-    alert("Tu dispositivo no soporta compartir directo. Copia el enlace manualmente.");
+    // Si no soporta compartir → copia el link
+    navigator.clipboard.writeText("<?php echo $currentURL; ?>");
+    alert("Enlace copiado. Puedes pegarlo en WhatsApp o mensaje.");
   }
+}
+
+function showQR(){
+  const modal = document.getElementById("qrModal");
+  modal.classList.add("active");
+  document.getElementById("qrcode").innerHTML="";
+  new QRCode(document.getElementById("qrcode"), {
+    text: "<?php echo $currentURL; ?>",
+    width: 220,
+    height: 220
+  });
+}
+
+function closeQR(){
+  document.getElementById("qrModal").classList.remove("active");
 }
 </script>
 
 </body>
 </html>
-
