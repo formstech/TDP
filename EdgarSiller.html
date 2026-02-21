@@ -7,6 +7,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<!-- Librería QR -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 <style>
 :root{
   --card:#161616;
@@ -22,34 +25,6 @@
   margin:0;
   padding:0;
 }
-  <!-- Librería QR -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
-<!-- Modal QR -->
-<div id="qrModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.8); justify-content:center; align-items:center;">
-  <div style="background:#161616; padding:30px; border-radius:20px; text-align:center; max-width:320px;">
-    <h2 style="color:#e6c77a; margin-bottom:15px;">Escanea mi tarjeta</h2>
-    <div id="qrcode"></div>
-    <br>
-    <button onclick="closeQR()" style="margin-top:15px; padding:10px 20px; border-radius:10px; border:none; cursor:pointer;">Cerrar</button>
-  </div>
-</div>
-
-<script>
-function showQR(){
-  document.getElementById("qrModal").style.display="flex";
-  document.getElementById("qrcode").innerHTML="";
-  new QRCode(document.getElementById("qrcode"), {
-    text: window.location.href,
-    width: 200,
-    height: 200
-  });
-}
-
-function closeQR(){
-  document.getElementById("qrModal").style.display="none";
-}
-</script>
 
 body{
   font-family:'Montserrat',sans-serif;
@@ -61,13 +36,11 @@ body{
   padding:20px;
 }
 
-/* CONTENEDOR */
 .container{
   width:100%;
   max-width:520px;
 }
 
-/* TARJETA */
 .card{
   background:var(--card);
   border-radius:var(--radius);
@@ -77,7 +50,6 @@ body{
   box-shadow:0 25px 60px rgba(0,0,0,0.7);
 }
 
-/* FOTO */
 .photo-circle{
   width:190px;
   height:190px;
@@ -85,12 +57,10 @@ body{
   margin:0 auto 35px;
   border:3px solid var(--gold);
   overflow:hidden;
-
   background-image:url('https://i.postimg.cc/C1Xpc6ML/Whats-App-Image-2026-02-17-at-3-26-13-PM.jpg');
   background-size:110%;
   background-position:center 25%;
   background-repeat:no-repeat;
-
   box-shadow:
     0 0 40px rgba(198,167,94,0.25),
     inset 0 0 35px rgba(0,0,0,0.6);
@@ -135,6 +105,7 @@ h1{
   width:100%;
   max-width:380px;
   transition:.3s ease;
+  cursor:pointer;
 }
 
 .social-btn:hover{
@@ -168,46 +139,50 @@ h1{
   margin-top:28px;
 }
 
-/* RESPONSIVE EXTRA PEQUEÑO */
-@media(max-width:480px){
-
-  .card{
-    padding:40px 20px;
-  }
-
-  .photo-circle{
-    width:150px;
-    height:150px;
-  }
-
-  h1{
-    font-size:1.2rem;
-  }
-
-  .role{
-    font-size:.9rem;
-  }
+/* MODAL QR */
+#qrModal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  justify-content:center;
+  align-items:center;
+  z-index:999;
 }
 
-/* DESKTOP GRANDE */
+.qr-box{
+  background:#161616;
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  border:1px solid rgba(198,167,94,.3);
+}
+
+.qr-box h2{
+  color:var(--gold-light);
+  margin-bottom:15px;
+}
+
+.close-btn{
+  margin-top:15px;
+  padding:10px 20px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+}
+
+@media(max-width:480px){
+  .card{ padding:40px 20px; }
+  .photo-circle{ width:150px; height:150px; }
+  h1{ font-size:1.2rem; }
+  .role{ font-size:.9rem; }
+}
+
 @media(min-width:900px){
-
-  .container{
-    max-width:600px;
-  }
-
-  .card{
-    padding:60px 50px;
-  }
-
-  .photo-circle{
-    width:220px;
-    height:220px;
-  }
-
-  h1{
-    font-size:1.6rem;
-  }
+  .container{ max-width:600px; }
+  .card{ padding:60px 50px; }
+  .photo-circle{ width:220px; height:220px; }
+  h1{ font-size:1.6rem; }
 }
 </style>
 </head>
@@ -230,8 +205,7 @@ h1{
       <a class="social-btn" href="https://www.instagram.com/nutriller" target="_blank">📸 Instagram</a>
       <a class="social-btn" href="https://www.facebook.com/share/1FuYqK4NwT/?mibextid=wwXIfr" target="_blank">📘 Facebook</a>
       <a class="social-btn" href="https://www.facebook.com/share/r/1Bv2T6ZEuv/?mibextid=wwXIfr" target="_blank">📲 Conoce nuestra App de Nutrición</a>
-<button class="social-btn" onclick="showQR()">🔳 Mostrar Código QR</button>
-
+      <button class="social-btn" onclick="showQR()">🔳 Mostrar Código QR</button>
     </div>
 
     <button class="save-btn">Guardar contacto</button>
@@ -241,8 +215,30 @@ h1{
   </div>
 </div>
 
+<!-- MODAL QR -->
+<div id="qrModal">
+  <div class="qr-box">
+    <h2>Escanea mi tarjeta</h2>
+    <div id="qrcode"></div>
+    <button class="close-btn" onclick="closeQR()">Cerrar</button>
+  </div>
+</div>
+
+<script>
+function showQR(){
+  document.getElementById("qrModal").style.display="flex";
+  document.getElementById("qrcode").innerHTML="";
+  new QRCode(document.getElementById("qrcode"), {
+    text: window.location.href,
+    width: 200,
+    height: 200
+  });
+}
+
+function closeQR(){
+  document.getElementById("qrModal").style.display="none";
+}
+</script>
+
 </body>
 </html>
-
-
-
