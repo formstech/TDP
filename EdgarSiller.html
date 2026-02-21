@@ -22,6 +22,34 @@
   margin:0;
   padding:0;
 }
+  <!-- Librería QR -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<!-- Modal QR -->
+<div id="qrModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.8); justify-content:center; align-items:center;">
+  <div style="background:#161616; padding:30px; border-radius:20px; text-align:center; max-width:320px;">
+    <h2 style="color:#e6c77a; margin-bottom:15px;">Escanea mi tarjeta</h2>
+    <div id="qrcode"></div>
+    <br>
+    <button onclick="closeQR()" style="margin-top:15px; padding:10px 20px; border-radius:10px; border:none; cursor:pointer;">Cerrar</button>
+  </div>
+</div>
+
+<script>
+function showQR(){
+  document.getElementById("qrModal").style.display="flex";
+  document.getElementById("qrcode").innerHTML="";
+  new QRCode(document.getElementById("qrcode"), {
+    text: window.location.href,
+    width: 200,
+    height: 200
+  });
+}
+
+function closeQR(){
+  document.getElementById("qrModal").style.display="none";
+}
+</script>
 
 body{
   font-family:'Montserrat',sans-serif;
@@ -202,6 +230,8 @@ h1{
       <a class="social-btn" href="https://www.instagram.com/nutriller" target="_blank">📸 Instagram</a>
       <a class="social-btn" href="https://www.facebook.com/share/1FuYqK4NwT/?mibextid=wwXIfr" target="_blank">📘 Facebook</a>
       <a class="social-btn" href="https://www.facebook.com/share/r/1Bv2T6ZEuv/?mibextid=wwXIfr" target="_blank">📲 Conoce nuestra App de Nutrición</a>
+<button class="social-btn" onclick="showQR()">🔳 Mostrar Código QR</button>
+
     </div>
 
     <button class="save-btn">Guardar contacto</button>
@@ -213,5 +243,6 @@ h1{
 
 </body>
 </html>
+
 
 
