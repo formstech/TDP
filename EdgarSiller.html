@@ -177,17 +177,22 @@ h1{
 
 <script>
 function shareCard(){
+  const currentURL = window.location.href;
+
   if(navigator.share){
     navigator.share({
       title: "Tarjeta Digital - Edgar Siller",
       text: "Te comparto mi tarjeta digital",
-      url: "<?php echo $currentURL; ?>"
+      url: currentURL
     });
   } else {
     document.getElementById("qrBox").style.display = "block";
+  }
+}
   }
 }
 </script>
 
 </body>
 </html>
+
