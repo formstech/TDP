@@ -1,6 +1,15 @@
 <?php
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
 $currentURL = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+
+$vcard = "BEGIN:VCARD\r\n";
+$vcard .= "VERSION:3.0\r\n";
+$vcard .= "FN:L.N. Edgar Arturo Siller Rubio\r\n";
+$vcard .= "ORG:Nutriller\r\n";
+$vcard .= "TITLE:Asesoría Nutricional Personalizada\r\n";
+$vcard .= "TEL;TYPE=CELL:+523331161760\r\n";
+$vcard .= "URL:$currentURL\r\n";
+$vcard .= "END:VCARD\r\n";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -13,7 +22,7 @@ $currentURL = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
 <style>
 :root{
-  --card:rgba(22,22,22,0.75);
+  --card:rgba(22,22,22,0.78);
   --gold:#c6a75e;
   --gold-light:#e6c77a;
   --text:#f5f5f5;
@@ -50,9 +59,7 @@ body{
   transition:.4s ease;
 }
 
-.card:hover{
-  transform:translateY(-6px);
-}
+.card:hover{ transform:translateY(-6px); }
 
 .photo-circle{
   width:200px;
@@ -109,6 +116,8 @@ h1{
   max-width:380px;
   transition:.3s ease;
   cursor:pointer;
+  font-family:inherit;
+  font-size:1rem;
 }
 
 .social-btn:hover{
@@ -126,14 +135,22 @@ h1{
 
 #qrBox{
   display:none;
-  margin-top:15px;
+  margin-top:18px;
   text-align:center;
 }
 
 #qrBox img{
+  width:200px;
+  max-width:100%;
   border-radius:18px;
   box-shadow:0 15px 35px rgba(0,0,0,0.6);
   border:1px solid rgba(198,167,94,0.3);
+}
+
+.qr-text{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:.9rem;
 }
 
 @keyframes fadeIn{
@@ -163,14 +180,16 @@ h1{
       <a class="social-btn" href="https://www.facebook.com/share/r/1Bv2T6ZEuv/?mibextid=wwXIfr" target="_blank">📲 Conoce nuestra App</a>
 
       <button class="social-btn" onclick="shareCard()">📤 Compartir tarjeta</button>
+      <button class="social-btn" onclick="toggleQR()">🔳 Mostrar QR</button>
+      <button class="social-btn" onclick="downloadVCard()">👤 Guardar contacto</button>
 
-      <!-- QR respaldo -->
       <div id="qrBox">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=<?php echo urlencode($currentURL); ?>" alt="QR">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=<?php echo urlencode($currentURL); ?>" alt="QR de tarjeta digital">
+        <div class="qr-text">Escanea este código para abrir la tarjeta digital</div>
       </div>
     </div>
 
-    <div class="footer-note">Desarrollado por Form Tech</div>
+    <div class="footer-note">Compatible con QR y NFC · Desarrollado por Form Tech</div>
 
   </div>
 </div>
@@ -179,20 +198,36 @@ h1{
 function shareCard(){
   const currentURL = window.location.href;
 
-  if(navigator.share){
+  if (navigator.share) {
     navigator.share({
       title: "Tarjeta Digital - Edgar Siller",
       text: "Te comparto mi tarjeta digital",
       url: currentURL
-    });
+    }).catch(err => console.log("Compartir cancelado:", err));
   } else {
-    document.getElementById("qrBox").style.display = "block";
+    toggleQR();
   }
 }
-  }
+
+function toggleQR(){
+  const qrBox = document.getElementById("qrBox");
+  qrBox.style.display = (qrBox.style.display === "block") ? "none" : "block";
+}
+
+function downloadVCard(){
+  const vcardData = `<?php echo addslashes($vcard); ?>`;
+  const blob = new Blob([vcardData], { type: "text/vcard;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "Edgar_Siller.vcf";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 </script>
 
 </body>
 </html>
-
