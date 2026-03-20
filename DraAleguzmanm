@@ -1,208 +1,230 @@
-<?php
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
-$currentURL = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Contacto · L.N. Edgar Arturo Siller Rubio</title>
+<title>Contacto · Odontología</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- Calendly -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
 <style>
 :root{
-  --card:rgba(22,22,22,0.75);
-  --gold:#c6a75e;
-  --gold-light:#e6c77a;
-  --text:#f5f5f5;
-  --muted:#9e9e9e;
-  --radius:26px;
+  --accent:#ff4d6d;         
+  --accent-light:#ffa3b1;   
+  --deep:#880e4f;           
+  --muted:#ad1457;          
+  --radius:22px;
+  --shadow:0 14px 36px rgba(136,14,79,0.12);
 }
-*{box-sizing:border-box;margin:0;padding:0;}
 
-body{
+*{box-sizing:border-box;}
+
+html, body {
+  height:100%;
+  margin:0;
   font-family:'Montserrat',sans-serif;
-  background:linear-gradient(135deg,#000,#111,#000);
+  background: linear-gradient(180deg, #ffe6eb 0%, #fff0f6 100%);
+}
+
+body {
   display:flex;
   justify-content:center;
   align-items:center;
+}
+
+.container {
+  width:100%;
+  max-width:500px;
   min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   padding:20px;
 }
 
-.container{
-  width:100%;
-  max-width:520px;
-  animation:fadeIn 1s ease;
-}
-
-.card{
-  background:var(--card);
-  backdrop-filter:blur(18px);
+.card {
+  background: linear-gradient(145deg, #ffffff, #ffe6eb);
   border-radius:var(--radius);
-  padding:55px 35px;
+  box-shadow:var(--shadow);
+  padding:35px 25px;
   text-align:center;
-  border:1px solid rgba(198,167,94,0.25);
-  box-shadow:0 30px 70px rgba(0,0,0,0.8);
-  transition:.4s ease;
 }
 
-.card:hover{ transform:translateY(-6px); }
-
-.photo-circle{
-  width:200px;
-  height:200px;
+/* 🔥 CÍRCULO MÁS GRANDE */
+.photo-circle {
+  width:190px;
+  height:190px;
   border-radius:50%;
-  margin:0 auto 35px;
-  border:3px solid var(--gold);
   overflow:hidden;
-  background-image:url('https://i.postimg.cc/C1Xpc6ML/Whats-App-Image-2026-02-17-at-3-26-13-PM.jpg');
-  background-size:110%;
-  background-position:center 25%;
-  background-repeat:no-repeat;
-  box-shadow:
-    0 0 60px rgba(198,167,94,0.35),
-    inset 0 0 40px rgba(0,0,0,0.6);
+  margin:0 auto 25px;
+  border:5px solid var(--accent);
+  background:linear-gradient(180deg,#ffdce3,#ffa3b1);
+  box-shadow:0 10px 25px rgba(255,77,109,0.25);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-h1{
-  font-size:1.6rem;
-  margin-bottom:8px;
-  color:var(--gold-light);
-  font-weight:800;
+/* 🔥 IMAGEN MÁS ALEJADA Y SIN CORTE */
+.photo-circle img {
+  width:85%;
+  height:auto;
+  object-fit:contain;
 }
 
-.gold-line{
-  width:70px;
-  height:3px;
-  background:linear-gradient(90deg,var(--gold),var(--gold-light));
-  margin:12px auto 20px;
+/* Textos */
+h1 {
+  font-size:1.45rem;
+  margin:10px 0 4px;
+  color:var(--deep);
+  font-weight:700;
 }
 
-.role{
+.role {
   font-size:1rem;
   color:var(--muted);
-  margin-bottom:35px;
+  margin-bottom:18px;
+  font-weight:600;
 }
 
-.socials{
+/* Botones */
+.socials {
   display:flex;
   flex-direction:column;
-  gap:18px;
+  gap:14px;
   align-items:center;
 }
 
-.social-btn{
-  padding:15px;
+.social-btn {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 14px;
   border-radius:16px;
-  background:rgba(30,30,30,0.8);
-  border:1px solid rgba(198,167,94,0.25);
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  box-shadow:0 10px 22px rgba(255,77,109,0.2);
   text-decoration:none;
-  color:var(--text);
-  font-weight:600;
-  width:100%;
-  max-width:380px;
-  transition:.3s ease;
-  cursor:pointer;
-  font-family:inherit;
+  color:white;
+  font-weight:700;
   font-size:1rem;
+  width:75%;
+  transition: all .25s ease;
 }
 
-.social-btn:hover{
-  background:linear-gradient(135deg,var(--gold),var(--gold-light));
-  color:#000;
+.social-btn:hover {
   transform:translateY(-4px);
-  box-shadow:0 20px 45px rgba(198,167,94,0.4);
+  box-shadow:0 18px 38px rgba(255,77,109,0.35);
 }
 
-.footer-note{
+.cta-row {
+  margin-top:22px;
+}
+
+.save-btn {
+  background: linear-gradient(135deg,#ff4d6d,#ff99aa);
+  color:white;
+  padding:12px 22px;
+  border-radius:16px;
+  border:none;
+  font-weight:800;
+  font-size:1.05rem;
+  box-shadow:0 12px 28px rgba(255,77,109,0.25);
+  cursor:pointer;
+  transition: all .25s ease;
+}
+
+.save-btn:hover {
+  transform:translateY(-4px);
+  box-shadow:0 20px 44px rgba(255,77,109,0.35);
+}
+
+.footer-note {
   font-size:.85rem;
-  color:#666;
-  margin-top:30px;
+  color:#ad1457;
+  margin-top:18px;
 }
 
-#qrBox{
-  display:none;
-  margin-top:15px;
-  text-align:center;
-}
-
-#qrBox img{
-  border-radius:18px;
-  box-shadow:0 15px 35px rgba(0,0,0,0.6);
-  border:1px solid rgba(198,167,94,0.3);
-  width:220px;
-  max-width:100%;
-}
-
-.qr-text{
-  margin-top:10px;
-  color:var(--muted);
-  font-size:.9rem;
-}
-
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(20px);}
-  to{opacity:1;transform:translateY(0);}
+@media(max-width:420px){
+  .photo-circle{width:170px;height:170px;}
+  .social-btn{width:90%;}
 }
 </style>
 </head>
-
 <body>
 
 <div class="container">
   <div class="card">
 
-    <div class="photo-circle"></div>
-
-    <h1>L.N. Edgar Arturo Siller Rubio</h1>
-    <div class="gold-line"></div>
-    <div class="role">Nutriller · Asesoría Nutricional Personalizada</div>
-
-    <div class="socials">
-      <a class="social-btn" href="tel:+523331161760">📱 Llamar</a>
-      <a class="social-btn" href="https://wa.me/523331161760" target="_blank">💬 WhatsApp</a>
-      <a class="social-btn" href="#">📅 Agendar Consulta</a>
-      <a class="social-btn" href="https://www.instagram.com/nutriller" target="_blank">📸 Instagram</a>
-      <a class="social-btn" href="https://www.facebook.com/share/1FuYqK4NwT/?mibextid=wwXIfr" target="_blank">📘 Facebook</a>
-      <a class="social-btn" href="https://www.facebook.com/share/r/1Bv2T6ZEuv/?mibextid=wwXIfr" target="_blank">📲 Conoce nuestra App</a>
-
-      <button class="social-btn" onclick="shareCard()">📤 Compartir tarjeta</button>
-      <button class="social-btn" onclick="toggleQR()">🔳 Mostrar QR</button>
-
-      <div id="qrBox">
-        <img src="https://i.postimg.cc/JzXkB4mG/QR.png echo urlencode($currentURL); ?>" alt="QR">
-        <div class="qr-text">Escanea este QR para abrir la tarjeta digital</div>
-      </div>
+    <div class="photo-circle">
+      <img src="https://i.postimg.cc/qBnMFvD7/Teresa-Guzman-Sin-fondo.png" alt="Foto Dra Teresa">
     </div>
 
-    <div class="footer-note">FormTech | 8332318763</div>
+    <h1>Dra. Teresa Guzman Gonzalez</h1>
+    <div class="role">Odontóloga · Estética & Rehabilitación</div>
+
+    <div class="socials">
+      <a class="social-btn" href="tel:+528332318763">📱 Llamar</a>
+      <a class="social-btn" href="https://wa.me/528332318763" target="_blank">💬 WhatsApp</a>
+
+      <!-- 🔥 CALENDLY POPUP -->
+      <a href="#"
+         class="social-btn"
+         onclick="Calendly.initPopupWidget({url: 'https://calendly.com/luis-arteaga-rocha/30min'});return false;">
+         📅 Agenda tu cita
+      </a>
+
+      <a class="social-btn" href="https://www.instagram.com/tuusuario" target="_blank">📸 Instagram</a>
+      <a class="social-btn" href="https://www.facebook.com/luisarteaga" target="_blank">📘 Facebook</a>
+    </div>
+
+    <div class="cta-row">
+      <button class="save-btn" id="saveContact">Guardar contacto</button>
+    </div>
+
+    <div class="footer-note">Form Tech | 8332318763</div>
 
   </div>
 </div>
 
+<!-- Calendly Script -->
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
 <script>
-function shareCard(){
-  const currentURL = window.location.href;
+document.getElementById('saveContact').addEventListener('click', function(){
+  const fn = "Dra. Teresa Guzman Gonzalez";
+  const tel = "+528332318763";
+  const email = "a.danielaguzman@hotmail.com";
+  const org = "Clínica Dental";
+  const title = "Odontóloga";
 
-  if(navigator.share){
-    navigator.share({
-      title: "Tarjeta Digital - Edgar Siller",
-      text: "Te comparto mi tarjeta digital",
-      url: currentURL
-    }).catch(err => console.log("Compartir cancelado:", err));
-  } else {
-    toggleQR();
-  }
-}
+  const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:${fn}
+N:Guzman Gonzalez;Teresa;;;
+TITLE:${title}
+ORG:${org}
+TEL;TYPE=CELL:${tel}
+EMAIL;TYPE=INTERNET:${email}
+END:VCARD`;
 
-function toggleQR(){
-  const qrBox = document.getElementById("qrBox");
-  qrBox.style.display = (qrBox.style.display === "block") ? "none" : "block";
-}
+  const blob = new Blob([vcard], {type:'text/vcard'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = fn.replace(/\s+/g,'_')+'.vcf';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+});
 </script>
 
 </body>
 </html>
+
+
