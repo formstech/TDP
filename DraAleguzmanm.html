@@ -5,193 +5,175 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Contacto · Pediatría</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-<!-- Calendly -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
 <style>
 :root{
-  --accent:#ff4d6d;         
-  --accent-light:#ffa3b1;   
-  --deep:#880e4f;           
-  --muted:#ad1457;          
-  --radius:22px;
-  --shadow:0 14px 36px rgba(136,14,79,0.12);
+  --pink:#ff4d6d;
+  --soft-pink:#ffd6de;
+  --light:#fff5f7;
+  --deep:#7a1e3a;
+  --glass:rgba(255,255,255,0.7);
+  --radius:24px;
 }
 
 *{box-sizing:border-box;}
 
-html, body {
-  height:100%;
+body{
   margin:0;
   font-family:'Montserrat',sans-serif;
-  background: linear-gradient(180deg, #ffe6eb 0%, #fff0f6 100%);
-}
-
-body {
+  background: linear-gradient(135deg,#ffe4ea,#fff5f7);
   display:flex;
   justify-content:center;
   align-items:center;
-}
-
-.container {
-  width:100%;
-  max-width:500px;
   min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+}
+
+/* CONTENEDOR */
+.container{
+  width:100%;
+  max-width:480px;
   padding:20px;
 }
 
-.card {
-  background: linear-gradient(145deg, #ffffff, #ffe6eb);
+/* TARJETA */
+.card{
+  backdrop-filter: blur(12px);
+  background: var(--glass);
   border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:35px 25px;
+  padding:30px 22px;
   text-align:center;
+  box-shadow:0 20px 50px rgba(255,77,109,0.15);
+  border:1px solid rgba(255,255,255,0.4);
 }
 
 /* FOTO */
-.photo-circle {
-  width:190px;
-  height:190px;
+.photo{
+  width:170px;
+  height:170px;
   border-radius:50%;
-  overflow:hidden;
-  margin:0 auto 15px;
-  border:5px solid var(--accent);
-  background:linear-gradient(180deg,#ffdce3,#ffa3b1);
-  box-shadow:0 10px 25px rgba(255,77,109,0.25);
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  margin:auto;
+  background:linear-gradient(135deg,#ff4d6d,#ff9aaa);
+  padding:5px;
+  box-shadow:0 12px 30px rgba(255,77,109,0.3);
 }
 
-.photo-circle img {
-  width:85%;
-  height:auto;
-  object-fit:contain;
+.photo img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
 }
 
-/* ICONOS REDES */
-.social-icons {
+/* REDES */
+.social-icons{
   display:flex;
   justify-content:center;
   gap:12px;
-  margin-bottom:18px;
+  margin:15px 0 10px;
 }
 
-.social-icon {
-  width:42px;
-  height:42px;
+.social-icon{
+  width:40px;
+  height:40px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  color:white;
-  font-size:1.2rem;
+  background:white;
+  color:var(--pink);
+  font-size:18px;
   text-decoration:none;
-  box-shadow:0 8px 18px rgba(255,77,109,0.25);
-  transition: all .25s ease;
+  box-shadow:0 6px 16px rgba(0,0,0,0.1);
+  transition:.3s;
 }
 
-.social-icon:hover {
-  transform:translateY(-3px);
-  box-shadow:0 14px 28px rgba(255,77,109,0.35);
+.social-icon:hover{
+  transform:scale(1.1);
 }
 
-/* Textos */
-h1 {
-  font-size:1.45rem;
-  margin:10px 0 4px;
+/* TEXTO */
+h1{
+  margin:12px 0 5px;
+  font-size:1.4rem;
   color:var(--deep);
-  font-weight:700;
 }
 
-.role {
-  font-size:1rem;
-  color:var(--muted);
-  margin-bottom:18px;
+.role{
+  color:#b23a57;
   font-weight:600;
+  margin-bottom:20px;
 }
 
-/* Botones */
-.socials {
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  align-items:center;
-}
-
-.social-btn {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  padding:13px 14px;
-  border-radius:16px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  box-shadow:0 10px 22px rgba(255,77,109,0.2);
+/* BOTONES */
+.btn{
+  display:block;
+  width:85%;
+  margin:10px auto;
+  padding:14px;
+  border-radius:18px;
   text-decoration:none;
-  color:white;
   font-weight:700;
-  font-size:1rem;
-  width:75%;
-  transition: all .25s ease;
+  transition:.3s;
 }
 
-.social-btn:hover {
-  transform:translateY(-4px);
-  box-shadow:0 18px 38px rgba(255,77,109,0.35);
-}
-
-.cta-row {
-  margin-top:22px;
-}
-
-.save-btn {
-  background: linear-gradient(135deg,#ff4d6d,#ff99aa);
+/* PRINCIPAL (AGENDA) */
+.btn-primary{
+  background: linear-gradient(135deg,#ff4d6d,#ff8fa3);
   color:white;
-  padding:12px 22px;
-  border-radius:16px;
-  border:none;
-  font-weight:800;
   font-size:1.05rem;
-  box-shadow:0 12px 28px rgba(255,77,109,0.25);
-  cursor:pointer;
-  transition: all .25s ease;
+  box-shadow:0 12px 28px rgba(255,77,109,0.35);
+  animation:pulse 2s infinite;
 }
 
-.save-btn:hover {
-  transform:translateY(-4px);
-  box-shadow:0 20px 44px rgba(255,77,109,0.35);
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,77,109,0.4);}
+  70%{box-shadow:0 0 0 15px rgba(255,77,109,0);}
+  100%{box-shadow:0 0 0 0 rgba(255,77,109,0);}
 }
 
-.footer-note {
-  font-size:.85rem;
-  color:#ad1457;
+/* SECUNDARIOS */
+.btn-secondary{
+  background:white;
+  color:var(--pink);
+  box-shadow:0 8px 18px rgba(0,0,0,0.08);
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+/* GUARDAR */
+.save{
   margin-top:18px;
+  background:transparent;
+  border:2px solid var(--pink);
+  color:var(--pink);
+  padding:10px 20px;
+  border-radius:14px;
+  font-weight:700;
+  cursor:pointer;
 }
 
-@media(max-width:420px){
-  .photo-circle{width:170px;height:170px;}
-  .social-btn{width:90%;}
+.footer{
+  margin-top:15px;
+  font-size:.8rem;
+  color:#b23a57;
 }
 </style>
 </head>
+
 <body>
 
 <div class="container">
   <div class="card">
 
-    <div class="photo-circle">
-      <img src="https://i.postimg.cc/qBnMFvD7/Teresa-Guzman-Sin-fondo.png" alt="Foto Dra Alejandra">
+    <div class="photo">
+      <img src="https://i.postimg.cc/qBnMFvD7/Teresa-Guzman-Sin-fondo.png">
     </div>
 
-    <!-- REDES -->
     <div class="social-icons">
       <a class="social-icon" href="https://www.instagram.com/tuusuario" target="_blank">📸</a>
       <a class="social-icon" href="https://www.facebook.com/luisarteaga" target="_blank">📘</a>
@@ -200,56 +182,40 @@ h1 {
     <h1>Dra. Alejandra Guzman Medina</h1>
     <div class="role">Pediatra · Neonatóloga</div>
 
-    <div class="socials">
-      <a class="social-btn" href="tel:+528332318763">📱 Llamar</a>
-      <a class="social-btn" href="https://wa.me/528332318763" target="_blank">💬 WhatsApp</a>
+    <!-- BOTÓN PRINCIPAL -->
+    <a href="#" class="btn btn-primary"
+       onclick="Calendly.initPopupWidget({url: 'https://calendly.com/luis-arteaga-rocha/30min'});return false;">
+       📅 Agenda tu cita
+    </a>
 
-      <a href="#"
-         class="social-btn"
-         onclick="Calendly.initPopupWidget({url: 'https://calendly.com/luis-arteaga-rocha/30min'});return false;">
-         📅 Agenda tu cita
-      </a>
-    </div>
+    <!-- BOTONES SECUNDARIOS -->
+    <a href="https://wa.me/528332318763" class="btn btn-secondary">💬 WhatsApp</a>
+    <a href="tel:+528332318763" class="btn btn-secondary">📱 Llamar</a>
 
-    <div class="cta-row">
-      <button class="save-btn" id="saveContact">Guardar contacto</button>
-    </div>
+    <button class="save" id="saveContact">Guardar contacto</button>
 
-    <div class="footer-note">Form Tech | 8332318763</div>
+    <div class="footer">Form Tech | 8332318763</div>
 
   </div>
 </div>
 
-<!-- Calendly Script -->
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 <script>
 document.getElementById('saveContact').addEventListener('click', function(){
-  const fn = "Dra. Alejandra Guzman Medina";
-  const tel = "+528332318763";
-  const email = "a.danielaguzman@hotmail.com";
-  const org = "Clínica Pediátrica";
-  const title = "Pediatra y Neonatóloga";
-
   const vcard = `BEGIN:VCARD
 VERSION:3.0
-FN:${fn}
-N:Guzman Medina;Alejandra;;;
-TITLE:${title}
-ORG:${org}
-TEL;TYPE=CELL:${tel}
-EMAIL;TYPE=INTERNET:${email}
+FN:Dra. Alejandra Guzman Medina
+TITLE:Pediatra y Neonatóloga
+TEL:+528332318763
+EMAIL:a.danielaguzman@hotmail.com
 END:VCARD`;
 
   const blob = new Blob([vcard], {type:'text/vcard'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = fn.replace(/\s+/g,'_')+'.vcf';
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  URL.revokeObjectURL(url);
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = "Contacto.vcf";
+  link.click();
 });
 </script>
 
