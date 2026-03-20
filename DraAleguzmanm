@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Contacto · Odontología</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet"> 
 
 <!-- Calendly -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
@@ -53,13 +53,13 @@ body {
   text-align:center;
 }
 
-/* 🔥 CÍRCULO MÁS GRANDE */
+/* FOTO */
 .photo-circle {
   width:190px;
   height:190px;
   border-radius:50%;
   overflow:hidden;
-  margin:0 auto 25px;
+  margin:0 auto 15px;
   border:5px solid var(--accent);
   background:linear-gradient(180deg,#ffdce3,#ffa3b1);
   box-shadow:0 10px 25px rgba(255,77,109,0.25);
@@ -69,11 +69,38 @@ body {
   justify-content:center;
 }
 
-/* 🔥 IMAGEN MÁS ALEJADA Y SIN CORTE */
 .photo-circle img {
   width:85%;
   height:auto;
   object-fit:contain;
+}
+
+/* 🔵 ICONOS REDES SOCIALES */
+.social-icons {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.social-icon {
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color:white;
+  font-size:1.2rem;
+  text-decoration:none;
+  box-shadow:0 8px 18px rgba(255,77,109,0.25);
+  transition: all .25s ease;
+}
+
+.social-icon:hover {
+  transform:translateY(-3px);
+  box-shadow:0 14px 28px rgba(255,77,109,0.35);
 }
 
 /* Textos */
@@ -164,6 +191,12 @@ h1 {
       <img src="https://i.postimg.cc/qBnMFvD7/Teresa-Guzman-Sin-fondo.png" alt="Foto Dra Teresa">
     </div>
 
+    <!-- 🔵 REDES SOCIALES -->
+    <div class="social-icons">
+      <a class="social-icon" href="https://www.instagram.com/tuusuario" target="_blank">📸</a>
+      <a class="social-icon" href="https://www.facebook.com/luisarteaga" target="_blank">📘</a>
+    </div>
+
     <h1>Dra. Teresa Guzman Gonzalez</h1>
     <div class="role">Odontóloga · Estética & Rehabilitación</div>
 
@@ -171,15 +204,11 @@ h1 {
       <a class="social-btn" href="tel:+528332318763">📱 Llamar</a>
       <a class="social-btn" href="https://wa.me/528332318763" target="_blank">💬 WhatsApp</a>
 
-      <!-- 🔥 CALENDLY POPUP -->
       <a href="#"
          class="social-btn"
          onclick="Calendly.initPopupWidget({url: 'https://calendly.com/luis-arteaga-rocha/30min'});return false;">
          📅 Agenda tu cita
       </a>
-
-      <a class="social-btn" href="https://www.instagram.com/tuusuario" target="_blank">📸 Instagram</a>
-      <a class="social-btn" href="https://www.facebook.com/luisarteaga" target="_blank">📘 Facebook</a>
     </div>
 
     <div class="cta-row">
@@ -226,5 +255,3 @@ END:VCARD`;
 
 </body>
 </html>
-
-
