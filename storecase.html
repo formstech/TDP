@@ -12,18 +12,21 @@
 
 :root{
   --bg:#050816;
-  --card:rgba(17,24,39,.78);
+  --card:rgba(15,23,42,.78);
+
   --line:rgba(255,255,255,.08);
 
-  --primary:#00E5FF;
-  --primary2:#00B8D4;
+  --cyan:#00E5FF;
+  --cyan2:#00B8D4;
+
+  --purple:#7C3AED;
 
   --text:#ffffff;
   --muted:#94A3B8;
 
   --success:#25D366;
 
-  --radius:28px;
+  --radius:30px;
 }
 
 *{
@@ -33,20 +36,24 @@
 }
 
 body{
+
   font-family:'Montserrat',sans-serif;
+
   min-height:100vh;
 
   background:
-  radial-gradient(circle at top left,#0ea5e950,transparent 35%),
-  radial-gradient(circle at bottom right,#7c3aed50,transparent 35%),
-  var(--bg);
+  radial-gradient(circle at top left,#00E5FF25,transparent 30%),
+  radial-gradient(circle at bottom right,#7C3AED35,transparent 35%),
+  #050816;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  padding:20px;
+  padding:22px;
+
   overflow-x:hidden;
+
 }
 
 /* CONTENEDOR */
@@ -62,26 +69,24 @@ body{
 
   position:relative;
 
+  overflow:hidden;
+
+  border-radius:var(--radius);
+
   background:var(--card);
 
   backdrop-filter:blur(18px);
 
-  border:1px solid var(--line);
-
-  border-radius:var(--radius);
-
-  padding:38px 28px;
-
-  text-align:center;
-
-  overflow:hidden;
+  border:1px solid rgba(255,255,255,.06);
 
   box-shadow:
-  0 20px 60px rgba(0,0,0,.45);
+  0 20px 60px rgba(0,0,0,.55);
+
+  animation:fadeIn .8s ease;
 
 }
 
-/* BRILLO */
+/* EFECTO */
 
 .card::before{
 
@@ -89,40 +94,105 @@ body{
 
   position:absolute;
 
-  width:240px;
-  height:240px;
+  width:280px;
+  height:280px;
 
-  background:rgba(0,229,255,.12);
+  background:rgba(0,229,255,.10);
 
   border-radius:50%;
 
   top:-120px;
   right:-120px;
 
-  filter:blur(10px);
+  filter:blur(20px);
 
 }
 
-/* FOTO */
+/* PORTADA */
 
-.photo{
+.cover{
 
-  width:140px;
-  height:140px;
+  position:relative;
 
-  border-radius:50%;
+  height:240px;
 
-  margin:auto;
+  overflow:hidden;
 
-  border:3px solid rgba(255,255,255,.15);
+}
 
-  background-image:url('TU_FOTO.jpg');
+.cover img{
 
-  background-size:cover;
-  background-position:center;
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transform:scale(1.03);
+
+}
+
+/* OVERLAY */
+
+.overlay{
+
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(
+  to top,
+  rgba(5,8,22,1) 5%,
+  rgba(5,8,22,.45) 45%,
+  rgba(5,8,22,.10)
+  );
+
+}
+
+/* LOGO */
+
+.logo{
+
+  position:absolute;
+
+  bottom:-58px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:125px;
+  height:125px;
+
+  border-radius:28px;
+
+  border:4px solid rgba(255,255,255,.10);
+
+  overflow:hidden;
+
+  background:#0f172a;
 
   box-shadow:
-  0 0 30px rgba(0,229,255,.45);
+  0 0 35px rgba(0,229,255,.30);
+
+}
+
+.logo img{
+
+  width:100%;
+  height:100%;
+  object-fit:cover;
+
+}
+
+/* CONTENIDO */
+
+.content{
+
+  padding:
+  80px
+  28px
+  32px;
+
+  text-align:center;
 
 }
 
@@ -130,25 +200,26 @@ body{
 
 .badge{
 
-  display:inline-block;
+  display:inline-flex;
 
-  margin-top:18px;
+  align-items:center;
+  gap:8px;
 
-  padding:8px 16px;
+  padding:10px 18px;
 
   border-radius:999px;
 
-  background:rgba(0,229,255,.12);
+  background:rgba(0,229,255,.10);
 
-  color:var(--primary);
+  border:1px solid rgba(0,229,255,.18);
+
+  color:var(--cyan);
 
   font-size:.8rem;
 
   font-weight:700;
 
-  letter-spacing:.5px;
-
-  border:1px solid rgba(0,229,255,.25);
+  letter-spacing:.4px;
 
 }
 
@@ -158,7 +229,7 @@ h1{
 
   margin-top:18px;
 
-  color:var(--text);
+  color:white;
 
   font-size:2rem;
 
@@ -170,13 +241,13 @@ h1{
 
 .role{
 
-  margin-top:10px;
+  margin-top:12px;
 
   color:var(--muted);
 
-  font-size:.98rem;
+  line-height:1.7;
 
-  line-height:1.6;
+  font-size:.97rem;
 
 }
 
@@ -184,25 +255,25 @@ h1{
 
 .products{
 
+  margin-top:28px;
+
   display:flex;
 
   flex-wrap:wrap;
 
+  gap:12px;
+
   justify-content:center;
-
-  gap:10px;
-
-  margin-top:25px;
 
 }
 
 .product{
 
-  padding:10px 14px;
+  padding:11px 15px;
 
-  border-radius:14px;
+  border-radius:16px;
 
-  background:rgba(255,255,255,.05);
+  background:rgba(255,255,255,.04);
 
   border:1px solid rgba(255,255,255,.06);
 
@@ -212,13 +283,23 @@ h1{
 
   font-weight:600;
 
+  transition:.3s;
+
+}
+
+.product:hover{
+
+  transform:translateY(-3px);
+
+  background:rgba(0,229,255,.08);
+
 }
 
 /* BOTONES */
 
 .buttons{
 
-  margin-top:30px;
+  margin-top:32px;
 
   display:flex;
 
@@ -232,21 +313,20 @@ h1{
 
   text-decoration:none;
 
-  padding:16px;
+  padding:17px;
 
   border-radius:18px;
 
   font-weight:700;
 
-  transition:.3s ease;
-
   display:flex;
 
   align-items:center;
-
   justify-content:center;
 
   gap:10px;
+
+  transition:.3s;
 
 }
 
@@ -254,12 +334,17 @@ h1{
 
 .btn-whatsapp{
 
-  background:linear-gradient(135deg,#25D366,#1ebe5d);
+  background:
+  linear-gradient(
+  135deg,
+  #25D366,
+  #1ebe5d
+  );
 
   color:white;
 
   box-shadow:
-  0 15px 35px rgba(37,211,102,.35);
+  0 18px 35px rgba(37,211,102,.30);
 
 }
 
@@ -275,7 +360,7 @@ h1{
 
   background:rgba(255,255,255,.05);
 
-  border:1px solid rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.06);
 
   color:white;
 
@@ -283,7 +368,7 @@ h1{
 
 .btn-secondary:hover{
 
-  background:rgba(255,255,255,.09);
+  background:rgba(0,229,255,.10);
 
   transform:translateY(-2px);
 
@@ -293,32 +378,32 @@ h1{
 
 .socials{
 
+  margin-top:30px;
+
   display:flex;
 
   justify-content:center;
 
-  gap:14px;
-
-  margin-top:28px;
+  gap:15px;
 
 }
 
 .social{
 
-  width:46px;
-  height:46px;
+  width:48px;
+  height:48px;
 
-  border-radius:14px;
+  border-radius:16px;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
+  text-decoration:none;
+
   background:rgba(255,255,255,.05);
 
   color:white;
-
-  text-decoration:none;
 
   font-size:1.2rem;
 
@@ -330,7 +415,7 @@ h1{
 
   transform:translateY(-4px);
 
-  background:rgba(0,229,255,.15);
+  background:rgba(0,229,255,.12);
 
 }
 
@@ -342,7 +427,23 @@ h1{
 
   color:#64748B;
 
-  font-size:.8rem;
+  font-size:.82rem;
+
+}
+
+/* ANIMACION */
+
+@keyframes fadeIn{
+
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 
 }
 
@@ -350,17 +451,22 @@ h1{
 
 @media(max-width:480px){
 
-  .card{
-    padding:34px 22px;
+  .cover{
+    height:210px;
+  }
+
+  .logo{
+    width:110px;
+    height:110px;
+    bottom:-50px;
+  }
+
+  .content{
+    padding:72px 22px 28px;
   }
 
   h1{
     font-size:1.7rem;
-  }
-
-  .photo{
-    width:120px;
-    height:120px;
   }
 
 }
@@ -374,79 +480,107 @@ h1{
 
   <div class="card">
 
-    <div class="photo"></div>
+    <!-- IMAGEN PRINCIPAL -->
+    <div class="cover">
 
-    <div class="badge">
-      ACCESORIOS PREMIUM
-    </div>
+      <img src="https://i.postimg.cc/nVK7PXfj/4e22e08f-629e-436a-b650-1febadaec7fc.jpg">
 
-    <h1>Arteaga Accessories</h1>
+      <div class="overlay"></div>
 
-    <div class="role">
-      Cases, micas, audífonos, cargadores y accesorios originales
-      para darle más estilo y protección a tu celular.
-    </div>
+      <!-- FOTO / LOGO -->
+      <div class="logo">
 
-    <div class="products">
+        <img src="https://i.postimg.cc/nVK7PXfj/4e22e08f-629e-436a-b650-1febadaec7fc.jpg">
 
-      <div class="product">📱 Micas</div>
-
-      <div class="product">🎧 Audífonos</div>
-
-      <div class="product">🔋 Cargadores</div>
-
-      <div class="product">📲 Cases</div>
-
-      <div class="product">⌚ Smartwatch</div>
+      </div>
 
     </div>
 
-    <div class="buttons">
+    <!-- CONTENIDO -->
+    <div class="content">
 
-      <a href="https://wa.me/521XXXXXXXXXX"
-      target="_blank"
-      class="btn btn-whatsapp">
+      <div class="badge">
+        ⚡ ACCESORIOS PREMIUM
+      </div>
 
-      📲 Pedir por WhatsApp
+      <h1>Arteaga Accessories</h1>
 
-      </a>
+      <div class="role">
 
-      <a href="https://wa.me/c/521XXXXXXXXXX"
-      target="_blank"
-      class="btn btn-secondary">
+        Cases, micas, audífonos, cargadores y accesorios
+        premium para iPhone, Samsung, Xiaomi y más.
 
-      🛒 Ver Catálogo
+      </div>
 
-      </a>
+      <!-- PRODUCTOS -->
+      <div class="products">
 
-      <a href="tel:+52XXXXXXXXXX"
-      class="btn btn-secondary">
+        <div class="product">📱 Micas</div>
 
-      📞 Llamar
+        <div class="product">🎧 AirPods</div>
 
-      </a>
+        <div class="product">🔋 Cargadores</div>
 
-      <a href="#"
-      class="btn btn-secondary">
+        <div class="product">📲 Cases</div>
 
-      📍 Ver Ubicación
+        <div class="product">⌚ Smartwatch</div>
 
-      </a>
+      </div>
 
-    </div>
+      <!-- BOTONES -->
+      <div class="buttons">
 
-    <div class="socials">
+        <a
+        href="https://wa.me/521XXXXXXXXXX"
+        target="_blank"
+        class="btn btn-whatsapp">
 
-      <a href="#" class="social">📘</a>
+        📲 Comprar por WhatsApp
 
-      <a href="#" class="social">📸</a>
+        </a>
 
-      <a href="#" class="social">🎵</a>
+        <a
+        href="https://wa.me/c/521XXXXXXXXXX"
+        target="_blank"
+        class="btn btn-secondary">
 
-    </div>
+        🛒 Ver Catálogo
 
-    <div class="footer">
-      Tecnología · Estilo · Protección
+        </a>
+
+        <a
+        href="tel:+52XXXXXXXXXX"
+        class="btn btn-secondary">
+
+        📞 Llamar
+
+        </a>
+
+        <a
+        href="#"
+        class="btn btn-secondary">
+
+        📍 Ver Ubicación
+
+        </a>
+
+      </div>
+
+      <!-- REDES -->
+      <div class="socials">
+
+        <a href="#" class="social">📸</a>
+
+        <a href="#" class="social">🎵</a>
+
+        <a href="#" class="social">📘</a>
+
+      </div>
+
+      <div class="footer">
+        Tecnología · Estilo · Protección
+      </div>
+
     </div>
 
   </div>
